@@ -11,5 +11,4 @@ public class HelloWorld {
         //System.out.println(hello());
         get("/hello", (req, res)->hello());
     }
-
 }
