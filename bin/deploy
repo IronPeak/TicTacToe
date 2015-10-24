@@ -1,0 +1,4 @@
+#!/bin/bash
+./gradlew clean
+./gradlew build installDist
+./build/install/TicTacToe/bin/TicTacToe

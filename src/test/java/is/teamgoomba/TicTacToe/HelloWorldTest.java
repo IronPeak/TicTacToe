@@ -6,6 +6,6 @@ public class HelloWorldTest {
     @Test 
 	public void testSomeLibraryMethod() {
         HelloWorld test = new HelloWorld();
-        assertEquals("0", "0");
+        assertEquals(test.hello(), "Helo, World");
     }
 }
