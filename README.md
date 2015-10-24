@@ -1,1 +1,1 @@
-<a href='https://coveralls.io/github/IronPeak/TicTacToe?branch=master'><img src='https://coveralls.io/repos/IronPeak/TicTacToe/badge.svg?branch=master&service=github' alt='Coverage Status' /></a> 
+[![Build Status](https://travis-ci.org/IronPeak/TicTacToe.svg?branch=master)](https://travis-ci.org/IronPeak/TicTacToe) [![Coverage Status](https://coveralls.io/repos/IronPeak/TicTacToe/badge.svg?branch=master&service=github)](https://coveralls.io/github/IronPeak/TicTacToe?branch=master)
