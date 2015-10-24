@@ -26,6 +26,26 @@ buildscript {
 
 cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
 
+apply plugin: 'jacoco'
+apply plugin: 'com.github.kt3k.coveralls'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.0.1'
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
+        html.enabled = true
+    }
+}
+
 mainClassName = "is.teamgoomba.TicTacToe.HelloWorld"
 // In this section you declare where to find the dependencies of your project
 repositories {
