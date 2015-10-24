@@ -5,6 +5,6 @@ public class HelloWorldTest {
     @Test 
 	public void testSomeLibraryMethod() {
         HelloWorld test = new HelloWorld();
-        assertTrue(0, 0);
+        assertEquals("0", "0");
     }
 }
