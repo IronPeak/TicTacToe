@@ -19,4 +19,8 @@ addons:
     notification_email: hrafnorri1207@gmail.com
     build_command_prepend: ./gradlew clean
     build_command:   ./gradlew build
-    branch_pattern: coverty_scan
+    branch_pattern: master
+
+after_success:
+- ./gradlew cobertura coveralls
+- ./gradlew jacocoTestReport coveralls
