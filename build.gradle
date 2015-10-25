@@ -46,6 +46,12 @@ jacocoTestReport {
     }
 }
 
+configurations.all {
+    resolutionStrategy {
+        force 'xml-apis:xml-apis:1.4.01'
+    }
+}
+
 mainClassName = "is.teamgoomba.TicTacToe.HelloWorld"
 
 jar {
