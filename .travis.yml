@@ -5,6 +5,18 @@ language: java
 jdk:
    - oraclejdk8
    
-after_success:
-- ./gradlew cobertura coveralls
-- ./gradlew jacocoTestReport coveralls
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "m/W1vxMrEAGXjbvvOCY2RBl91xW0AubcpSu1zDlechfglhzGkqfG5TNNbVyGBTPvl0QH8/EDyaF8kz5X/oT14VDfB9IEm/ZzqKHyrm3uTgacqc1xfzpFfHJNh+vV8AajujJDJBBOa91uDkMuVwgo/fqmXpOGW8CD+rQG6UEifoFefKrWaj43Ly8aSwMu8G6Z/sVe/+X7FzgwBIGkhMu9x9ZCMFIZQ3debAbXXzYdNKIG6wjVYZO1/sTKaauGPtcOeVAdZgdkkcTzCb2NI5RW+jT76bGlIBVyYIEzyphwJEl5Qp6WATupads/ujiEdV2fV5vcU/exX2CFmrCr/FvE3G/eP9Z+k/e+DXyqpbcMRFzjsGBzxndMvgZ/hZrpsdag1bOy6ZRO00bi9QeVpTD8UcO3aDT6n1rAc/qMk7J5NY9oKGzuJ+EODMX2z1PMYo/AN6Eq+D/XlTlcCqV79P/mrJNUbLs78UXEMgIUwVQSDn4Vt8wEZaPU1tnJapejobA/l0azYIF+9vO8BprbeP6UTpbP5N0mK7RPftRy/EUhZCh8wxMyKKw6S9dUvgMPkG2F0vm2A7RbtBFIK1gzgfHVltwCUUrRTvgYSJKJRXZ+yUfstlINhmcwm32UTE8uyJ6+aVd+03Cxaxp0cLifdPLSp4a4EE9OT6s0LB8XVc+DPnY="
+
+addons:
+  coverity_scan:
+    project:
+      name: "IronPeak/TicTacToe"
+      description: "TicTacToe application"
+    notification_email: hrafnorri1207@gmail.com
+    build_command_prepend: ./gradlew clean
+    build_command:   ./gradlew build
+    branch_pattern: coverity_scan
