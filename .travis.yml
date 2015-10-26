@@ -22,6 +22,6 @@ addons:
     branch_pattern: master
 
 after_success:
-	./bin/travis_deploy
+   - ./bin/travis_deploy
 #- ./gradlew cobertura coveralls
 #- ./gradlew jacocoTestReport coveralls
