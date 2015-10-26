@@ -21,6 +21,19 @@ addons:
     build_command:   ./gradlew build
     branch_pattern: master
 
-#after_success:
+after_success:
+	if [ $TRAVIS_BRANCH = "ContinousDeployment" ]; then
+		echo "Travis deploy"
+		#echo "Connecting to skel"
+		#spawn ssh hrafnh14@82.221.50.54
+		#expect "password:"
+		#sleep 1
+		#send $SKEL_PASSWORD + "\r"
+		#send git checkout $TRAVIS_BRANCH
+		#send git pull origin $TRAVIS_BRANCH
+		#send ./bin/deploy
+	else
+		echo "Do not deploy!"
+	fi
 #- ./gradlew cobertura coveralls
 #- ./gradlew jacocoTestReport coveralls
