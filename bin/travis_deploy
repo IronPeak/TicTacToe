@@ -1,0 +1,6 @@
+#!/usr/bin/
+if [ $TRAVIS_BRANCH = "ContinousDeployment" ]; then
+	echo "Do deploy"
+else
+	echo "No deploy"
+fi
