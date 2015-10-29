@@ -21,6 +21,5 @@ addons:
     build_command:   ./gradlew build
     branch_pattern: master
 
-#after_success:
-#- ./gradlew cobertura coveralls
-#- ./gradlew jacocoTestReport coveralls
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
