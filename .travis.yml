@@ -21,6 +21,7 @@ addons:
     build_command:   ./gradlew build
     branch_pattern: master
 
-#after_success:
-#- ./gradlew cobertura coveralls
-#- ./gradlew jacocoTestReport coveralls
+before_install:
+  - pip install --user codecov
+after_success:
+  - codecov
