@@ -7,7 +7,7 @@ import spark.servlet.SparkApplication;
 public class HelloWorld implements SparkApplication {
     
     public static String hello(){
-		return "Hello, World";
+        return "Hello, World";
     }
 
     public static void main(String[] args) {
@@ -21,9 +21,9 @@ public class HelloWorld implements SparkApplication {
 
         hello.init();
     }
-	
-	@Override
+    
+    @Override
     public void init() {
-    	post("/hello", (req, res)->hello());
+        post("/hello", (req, res)->hello());
     }
 }
