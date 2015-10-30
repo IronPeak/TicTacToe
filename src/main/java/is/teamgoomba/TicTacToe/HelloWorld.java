@@ -11,8 +11,7 @@ public class HelloWorld implements SparkApplication {
     }
 
     public static void main(String[] args) {
-        // Prints "Hello, World" to the terminal window.
-        //System.out.println(hello());
+
         staticFileLocation("/public");
         SparkApplication hello = new HelloWorld();
         String port = System.getenv("PORT");
