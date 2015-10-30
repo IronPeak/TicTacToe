@@ -1,5 +1,7 @@
 #!/bin/sh
 
-mv -f bin/githooks/pre-push .git/hooks/pre-push
+cp -f bin/githooks/pre-push .git/hooks/pre-push
+
+chmod +x .git/hooks/*
 
 exit 0
