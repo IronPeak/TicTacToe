@@ -25,4 +25,5 @@ before_install:
   - pip install --user codecov
 after_success:
   - codecov
-  - ./bin/pushheroku
+script:
+  - bash bin/pushheroku
