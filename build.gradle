@@ -10,47 +10,32 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 apply plugin: 'application'
-apply plugin: 'cobertura'
-apply plugin: 'com.github.kt3k.coveralls'
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
+//Begin jacoco
+apply plugin: 'jacoco'
 
-    dependencies {
-        classpath 'net.saliman:gradle-cobertura-plugin:2.0.0' // cobertura plugin
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.4.0'
-    }
+version = '0.0.1'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
 }
 
-cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
-
-apply plugin: 'jacoco'
-apply plugin: 'com.github.kt3k.coveralls'
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.0.1'
-    }
+dependencies {
+    // project dependencies
+    // ...
 }
 
 jacocoTestReport {
     reports {
-        xml.enabled = true // coveralls plugin depends on xml format report
+        xml.enabled = true
         html.enabled = true
     }
 }
 
-configurations.all {
-    resolutionStrategy {
-        force 'xml-apis:xml-apis:1.4.01'
-    }
-}
+check.dependsOn jacocoTestReport
+//End jacoco
 
 mainClassName = "is.teamgoomba.TicTacToe.HelloWorld"
 
@@ -77,4 +62,8 @@ dependencies {
     // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
     // 'test.useTestNG()' to your build script.
     testCompile 'junit:junit:4.12'
+}
+
+task stage {
+    dependsOn installDist
 }

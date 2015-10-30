@@ -1,6 +1,4 @@
 #!/usr/bin/
 if [ $TRAVIS_BRANCH = "ContinousDeployment" ]; then
-	echo "Do deploy"
-else
-	echo "No deploy"
+	git push heroku master
 fi
