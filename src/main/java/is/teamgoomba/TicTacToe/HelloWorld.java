@@ -15,12 +15,16 @@ public class HelloWorld implements SparkApplication {
         staticFileLocation("/public");
         SparkApplication hello = new HelloWorld();
         String port = System.getenv("PORT");
-        if (port != null) {
-            port(Integer.valueOf(port));
-        }
-
+        port = getPort(port);
         hello.init();
     }
+	
+	public static String getPort(String port) {
+		if(port != null) {
+			return port(Integer.valueOf(port));
+		}
+		return null;
+	}
 	
 	@Override
     public void init() {
