@@ -14,12 +14,7 @@ addons:
     build_command_prepend: "./gradlew clean"
     build_command: "./gradlew build"
     branch_pattern: master
-before_install:
-- pip install --user codecov
-after_success:
-- codecov
-script:
-- bash bin/pushheroku
+	
 deploy:
   provider: heroku
   api_key:
@@ -28,3 +23,8 @@ deploy:
   on:
     repo: IronPeak/TicTacToe
     branch: master
+	
+before_install:
+- pip install --user codecov
+after_success:
+- codecov
