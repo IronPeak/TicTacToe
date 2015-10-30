@@ -1,0 +1,4 @@
+#!/usr/bin/
+if [ $TRAVIS_BRANCH = "ContinousDeployment" ]; then
+	git push heroku master
+fi

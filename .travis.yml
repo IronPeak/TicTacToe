@@ -1,27 +1,28 @@
 os: linux
-
 language: java
-
 jdk:
-   - oraclejdk8
-   
+- oraclejdk8
 env:
   global:
-   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-   #   via the "travis encrypt" command using the project repo's public key
-   - secure: "m/W1vxMrEAGXjbvvOCY2RBl91xW0AubcpSu1zDlechfglhzGkqfG5TNNbVyGBTPvl0QH8/EDyaF8kz5X/oT14VDfB9IEm/ZzqKHyrm3uTgacqc1xfzpFfHJNh+vV8AajujJDJBBOa91uDkMuVwgo/fqmXpOGW8CD+rQG6UEifoFefKrWaj43Ly8aSwMu8G6Z/sVe/+X7FzgwBIGkhMu9x9ZCMFIZQ3debAbXXzYdNKIG6wjVYZO1/sTKaauGPtcOeVAdZgdkkcTzCb2NI5RW+jT76bGlIBVyYIEzyphwJEl5Qp6WATupads/ujiEdV2fV5vcU/exX2CFmrCr/FvE3G/eP9Z+k/e+DXyqpbcMRFzjsGBzxndMvgZ/hZrpsdag1bOy6ZRO00bi9QeVpTD8UcO3aDT6n1rAc/qMk7J5NY9oKGzuJ+EODMX2z1PMYo/AN6Eq+D/XlTlcCqV79P/mrJNUbLs78UXEMgIUwVQSDn4Vt8wEZaPU1tnJapejobA/l0azYIF+9vO8BprbeP6UTpbP5N0mK7RPftRy/EUhZCh8wxMyKKw6S9dUvgMPkG2F0vm2A7RbtBFIK1gzgfHVltwCUUrRTvgYSJKJRXZ+yUfstlINhmcwm32UTE8uyJ6+aVd+03Cxaxp0cLifdPLSp4a4EE9OT6s0LB8XVc+DPnY="
-
+  - secure: m/W1vxMrEAGXjbvvOCY2RBl91xW0AubcpSu1zDlechfglhzGkqfG5TNNbVyGBTPvl0QH8/EDyaF8kz5X/oT14VDfB9IEm/ZzqKHyrm3uTgacqc1xfzpFfHJNh+vV8AajujJDJBBOa91uDkMuVwgo/fqmXpOGW8CD+rQG6UEifoFefKrWaj43Ly8aSwMu8G6Z/sVe/+X7FzgwBIGkhMu9x9ZCMFIZQ3debAbXXzYdNKIG6wjVYZO1/sTKaauGPtcOeVAdZgdkkcTzCb2NI5RW+jT76bGlIBVyYIEzyphwJEl5Qp6WATupads/ujiEdV2fV5vcU/exX2CFmrCr/FvE3G/eP9Z+k/e+DXyqpbcMRFzjsGBzxndMvgZ/hZrpsdag1bOy6ZRO00bi9QeVpTD8UcO3aDT6n1rAc/qMk7J5NY9oKGzuJ+EODMX2z1PMYo/AN6Eq+D/XlTlcCqV79P/mrJNUbLs78UXEMgIUwVQSDn4Vt8wEZaPU1tnJapejobA/l0azYIF+9vO8BprbeP6UTpbP5N0mK7RPftRy/EUhZCh8wxMyKKw6S9dUvgMPkG2F0vm2A7RbtBFIK1gzgfHVltwCUUrRTvgYSJKJRXZ+yUfstlINhmcwm32UTE8uyJ6+aVd+03Cxaxp0cLifdPLSp4a4EE9OT6s0LB8XVc+DPnY=
 addons:
   coverity_scan:
     project:
-      name: "IronPeak/TicTacToe"
-      description: "TicTacToe application"
+      name: IronPeak/TicTacToe
+      description: TicTacToe application
     notification_email: hrafnorri1207@gmail.com
-    build_command_prepend: ./gradlew clean
-    build_command:   ./gradlew build
+    build_command_prepend: "./gradlew clean"
+    build_command: "./gradlew build"
     branch_pattern: master
-
 before_install:
-  - pip install --user codecov
+- pip install --user codecov
 after_success:
-  - codecov
+- codecov
+deploy:
+  provider: heroku
+  api_key:
+    secure: pbq85FwLH3i2Nw6b/o/7KOZ+E4oagR5h1IOlBjX0iZ6D6WadUZnjfX2DQtl7z0VNTmNk8BYp3DRtuKzrl+9ox/oVSIKnjgOEygA/HQDIxYAOHB0Qr7dnRQzFMlVW6nHBkhvRG5Hi7uUULjqJCncfiI37lAYmounyRLrXMMsz7XSZPndYTe5TPj30xtkSFWZxU45y3G+DC+5fzZo9pJ5h7ge39btmn2iEgpTcU7znQjwz9l7pKcNxkyy9Wfl7JV9dkXP/nll8Jx22Qa3H+ilzJpAB563iiJi0rXqOAkgAKXhRmvhYwKDvbSgrfsDw9dfejC1AGbXNNvJlMMP+YPwP/gkbKx8J/Xyiyn22ChS2MFNJ7cSdGbwBp8P1YOITBmGa+/dfikvVr2OiGRw+735G79sZQvyYgHEVeb/caOL+zbdmb3yjcw+vt/U0VE+CDXflyZhtuWonuCWwEEUEtMkty8tr330Lw+wxVfCL66ckx593vN0bxpCGWhULwtC0np8WPj2iLDbMoI1e5kKobPrGbl0M/HWDMnAEDVaSFNfbZPHC/BD8sma/4+hJlXv1UuFv3DvV004v9EkbIAF8GDwJPqRznJaY++1WNaHqeAcK1hebnuCOAJaT+7+GVNdOzrC8A5SVqjLvjqKktVawEv7q5i0BjEMVsDTw1COmHiZOeoM=
+  app: TicTacToe
+  on:
+    repo: IronPeak/TicTacToe
+    branch: master
