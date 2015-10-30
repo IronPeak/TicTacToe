@@ -16,7 +16,10 @@ public class HelloWorld implements SparkApplication {
         staticFileLocation("/public");
         SparkApplication hello = new HelloWorld();
         String port = System.getenv("PORT");
-        port(Integer.valueOf(port));
+        if (port != null) {
+            port(Integer.valueOf(port));
+        }
+
         hello.init();
     }
 	
