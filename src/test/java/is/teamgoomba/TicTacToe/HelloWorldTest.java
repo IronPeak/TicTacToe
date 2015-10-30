@@ -20,4 +20,11 @@ public class HelloWorldTest {
       fail("Exception caught");
     }
   }
+  
+  @Test
+  public void testGetPort() {
+    HelloWorld test = new HelloWorld();
+	assertEquals(test.getPort(null), null);
+	assertEquals(test.getPort("8080"), "8080");
+  }
 }
