@@ -19,7 +19,7 @@ public class SeleniumTest {
   @Before
   public void setUp() throws Exception {
     driver = new HtmlUnitDriver();
-    baseUrl = "https://desolate-bayou-7964.herokuapp.com/";
+    baseUrl = "https://calm-beyond-6452.herokuapp.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
