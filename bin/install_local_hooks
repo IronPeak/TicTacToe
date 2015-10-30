@@ -1,7 +1,0 @@
-#!/bin/sh
-
-cd ..
-
-mv TicTacToe/bin/git_hooks/pre-push .git/hooks/pre-push
-
-exit 0

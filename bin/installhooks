@@ -1,0 +1,5 @@
+#!/bin/sh
+
+mv -f bin/githooks/pre-push .git/hooks/pre-push
+
+exit 0
