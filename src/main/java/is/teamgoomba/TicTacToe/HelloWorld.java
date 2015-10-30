@@ -5,26 +5,19 @@ import static spark.Spark.*;
 import spark.servlet.SparkApplication;
 
 public class HelloWorld implements SparkApplication {
-    
-    public static String hello(){
-		return "Hello, World";
-    }
 
     public static void main(String[] args) {
-        // Prints "Hello, World" to the terminal window.
-        //System.out.println(hello());
         staticFileLocation("/public");
         SparkApplication hello = new HelloWorld();
-        String port = System.getenv("PORT");
-        if (port != null) {
-            port(Integer.valueOf(port));
-        }
-
         hello.init();
     }
 	
 	@Override
     public void init() {
     	post("/hello", (req, res)->hello());
+    }
+
+    public static String hello() {
+        return "Hello, World";
     }
 }
