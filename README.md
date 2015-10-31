@@ -4,3 +4,7 @@
 ![Heroku](https://heroku-badge.herokuapp.com/?app=calm-beyond-6452)
 
 <a href="https://calm-beyond-6452.herokuapp.com/">Web app</a>
+
+<a href="https://travis-ci.org/IronPeak/TicTacToe">Travis CI</a>
+
+<a href="https://codecov.io/github/IronPeak/TicTacToe">Code Coverage</a>
