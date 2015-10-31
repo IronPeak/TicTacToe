@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 public class BoardTest {
 
   @Test	
-  public void testSomeLibraryMethod() {
+  public void testEmptyBoard() {
       Board board = new Board();
       assertEquals(board.GetBoard(),"000000000");
   }
