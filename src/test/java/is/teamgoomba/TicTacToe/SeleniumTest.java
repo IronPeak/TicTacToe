@@ -26,13 +26,13 @@ public class SeleniumTest {
   @Test
   public void testSelenium() throws Exception {
     driver.get(baseUrl + "");
-    assertEquals("Hello World", driver.getTitle());
-    driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
-    try {
-      assertEquals("Hello, World", driver.findElement(By.cssSelector("body")).getText());
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
+    assertEquals("Tic Tac Toe", driver.getTitle());
+    // driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+    // try {
+    //   assertEquals("Hello, World", driver.findElement(By.cssSelector("body")).getText());
+    // } catch (Error e) {
+    //   verificationErrors.append(e.toString());
+    // }
   }
 
   @After

@@ -5,10 +5,6 @@ import static spark.Spark.*;
 import spark.servlet.SparkApplication;
 
 public class HelloWorld implements SparkApplication {
-    
-    public static String hello(){
-		return "Hello, World";
-    }
 
     public static void main(String[] args) {
 
@@ -25,5 +21,10 @@ public class HelloWorld implements SparkApplication {
     public void init() {
     	post("/hello", (req, res)->hello());
     }
+
+    public static String hello(){
+        return "Hello, World";
+    }
+
 }
 
