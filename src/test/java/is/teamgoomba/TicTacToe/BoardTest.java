@@ -7,6 +7,7 @@ public class BoardTest {
 
   @Test	
   public void testSomeLibraryMethod() {
-    return;
+      Board board = new Board();
+      assertEquals(board.GetBoard(),"000000000");
   }
 }
