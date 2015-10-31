@@ -7,7 +7,7 @@ import spark.servlet.SparkApplication;
 public class HelloWorld implements SparkApplication {
     
     public static String hello(){
-		return "Hello, World";
+		return "Success";
     }
 
     public static void main(String[] args) {
