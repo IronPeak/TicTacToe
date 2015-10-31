@@ -29,7 +29,7 @@ public class SeleniumTest {
     assertEquals("Hello World", driver.getTitle());
     driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
     try {
-      assertEquals("Hello, World", driver.findElement(By.cssSelector("body")).getText());
+      assertEquals("Success", driver.findElement(By.cssSelector("body")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
