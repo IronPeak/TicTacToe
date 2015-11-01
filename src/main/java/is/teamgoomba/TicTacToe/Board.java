@@ -40,5 +40,27 @@ public class Board {
         } 
         return false;
     }
+
+    public int GetWinner(){
+        for(int y = 0; y < dim; y++){
+            if( (Grid[y][0] != 0) && (Grid[y][0] == Grid[y][1]) &&  (Grid[y][1] == Grid[y][2])){
+               return Grid[y][0];
+            }    
+        }	
+        for(int x = 0; x < dim; x++){
+            if( (Grid[0][x] != 0) && (Grid[0][x] == Grid[1][x]) &&  (Grid[1][x] == Grid[2][x])){
+                return Grid[0][x];
+            }    
+        }
+        if(Grid[1][1] != 0){
+            if(Grid[1][1] == Grid[0][0] &&  Grid[1][1] == Grid[2][2] ){
+                return Grid[0][0];
+	    }
+            if(Grid[1][1] == Grid[0][2] &&  Grid[1][1] == Grid[2][0] ){
+                return Grid[0][0];
+	    }
+        }
+        return 0;
+    }
 }
 
