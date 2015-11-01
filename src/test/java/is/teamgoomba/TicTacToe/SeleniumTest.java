@@ -11,7 +11,7 @@ import com.gargoylesoftware.htmlunit.BrowserVersion;
 import org.openqa.selenium.support.ui.Select;
 
 public class SeleniumTest {
-/*  private HtmlUnitDriver driver;
+  private HtmlUnitDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
@@ -43,5 +43,4 @@ public class SeleniumTest {
       fail(verificationErrorString);
     }
   }
-*/
 }
