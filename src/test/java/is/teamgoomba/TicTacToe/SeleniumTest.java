@@ -20,7 +20,7 @@ public class SeleniumTest {
 	public void setUp() throws Exception {
 		if(runSeleniumTests()) {
 			driver = new HtmlUnitDriver();
-			baseUrl = "https://calm-beyond-6452.herokuapp.com/";
+			baseUrl = "goomba-developmentbranch.herokuapp.com/";
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		}
 	}
