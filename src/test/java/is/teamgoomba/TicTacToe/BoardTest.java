@@ -12,7 +12,7 @@ public class BoardTest {
   }
  
   @Test	
-  public void testPlaceValidBoard() {
+  public void testPlaceValid() {
       Board board = new Board();
       assertTrue(board.Place(0,0,1));
       assertTrue(board.Place(2,2,2));
@@ -23,5 +23,19 @@ public class BoardTest {
       assertTrue(board.Place(0,2,1));
       assertEquals(board.GetBoard(),"100112122");
   }
+  @Test	
+  public void testPlaceOutofBounds() {
+      Board board = new Board();
+      assertFalse(board.Place(3,0,1));
+      assertFalse(board.Place(0,3,1));
+      assertFalse(board.Place(-1,0,1));
+      assertFalse(board.Place(0,-1,1));
+      assertFalse(board.Place(3,3,1));
+      assertFalse(board.Place(-1,3,1));
+      assertFalse(board.Place(3,-1,1));
+      assertEquals(board.GetBoard(),"000000000");
+  }
+   
+
    
 }

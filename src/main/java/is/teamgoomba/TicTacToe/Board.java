@@ -22,10 +22,23 @@ public class Board {
         }
     	return build.toString();
     }
-    
-    public boolean Place(int x, int y, int symbol){
-        Grid[y][x] = symbol; 
+
+    private boolean ValidPlace(int x, int y){
+        if((x >= dim )||(y >=dim)||(x < 0)||(y < 0)){
+             return false;
+        }
+        if(Grid[y][x] != 0){
+             return false;
+        }
         return true;
+    }
+ 
+    public boolean Place(int x, int y, int symbol){
+        if(ValidPlace(x,y)){
+            Grid[y][x] = symbol; 
+            return true;
+        } 
+        return false;
     }
 }
 
