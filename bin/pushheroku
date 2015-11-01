@@ -1,4 +1,0 @@
-#!/usr/bin/
-if [ $TRAVIS_BRANCH = "SeleniumTests" ]; then
-	sleep $HEROKU_BUILD_TIME
-fi
