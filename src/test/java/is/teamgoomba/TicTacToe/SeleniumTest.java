@@ -29,7 +29,7 @@ public class SeleniumTest {
 	public void testSelenium() throws Exception {
 		if(runSeleniumTests()) {
 			driver.get(baseUrl + "");
-			assertEquals("Tic Tac Toe", driver.getTitle());
+			assertEquals("This should fail", driver.getTitle());
 		}
 	}
 
