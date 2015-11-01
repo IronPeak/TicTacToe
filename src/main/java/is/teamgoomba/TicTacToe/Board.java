@@ -54,10 +54,10 @@ public class Board {
         }
         if(Grid[1][1] != 0){
             if(Grid[1][1] == Grid[0][0] &&  Grid[1][1] == Grid[2][2] ){
-                return Grid[0][0];
+                return Grid[1][1];
 	    }
             if(Grid[1][1] == Grid[0][2] &&  Grid[1][1] == Grid[2][0] ){
-                return Grid[0][0];
+                return Grid[1][1];
 	    }
         }
         return 0;
