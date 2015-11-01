@@ -16,6 +16,6 @@ addons:
     branch_pattern: master
 before_install:
 - pip install --user codecov
-- sleep $HEROKU_BUILD_TIME
+- ./bin/waitforheroku
 after_success:
 - codecov
