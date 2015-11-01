@@ -23,6 +23,19 @@ public class BoardTest {
       assertTrue(board.Place(0,2,1));
       assertEquals(board.GetBoard(),"100112122");
   }
+
+  @Test	
+  public void testInvalidPlace() {
+      Board board = new Board();
+      assertTrue(board.Place(0,0,1));
+      assertFalse(board.Place(0,0,1));
+      assertFalse(board.Place(0,0,2));
+      assertEquals(board.GetBoard(),"100000000");
+      assertTrue(board.Place(1,1,2));
+      assertFalse(board.Place(1,1,1));
+      assertFalse(board.Place(1,1,2));
+  } 
+
   @Test	
   public void testPlaceOutofBounds() {
       Board board = new Board();
@@ -54,9 +67,24 @@ public class BoardTest {
       assertEquals(board.GetWinner(),0);
   }
    
+  @Test	
+  public void testSlantedWinner() {
+      Board board = new Board();
+      board.Place(0,0,1);
+      board.Place(1,1,1);
+      board.Place(2,2,1);
+      assertEquals(board.GetWinner(),1); 
+      board = new Board();
+      board.Place(2,0,2);
+      board.Place(1,1,2);
+      board.Place(0,2,2);
+      assertEquals(board.GetWinner(),2);  
+  }
+  
+
 
   @Test	
-  public void testWinner() {
+  public void testVerticalWinner() {
       Board board = new Board();
       board.Place(0,0,1);
       board.Place(0,1,1);
@@ -68,26 +96,58 @@ public class BoardTest {
       assertEquals(board.GetWinner(),1); 
       
       board = new Board();
-      board.Place(0,0,2);
-      board.Place(0,1,2);
-      board.Place(0,2,2);
+      board.Place(1,0,2);
+      board.Place(1,1,2);
+      board.Place(1,2,2);
       assertEquals(board.GetWinner(),2); 
-      board.Place(1,0,1);
+      board.Place(0,0,1);
       board.Place(2,1,1);
-      board.Place(1,2,1);
+      board.Place(0,2,1);
       assertEquals(board.GetWinner(),2);
       
       board = new Board();
+      board.Place(2,0,2);
+      board.Place(2,1,2);
+      board.Place(2,2,2);
+      assertEquals(board.GetWinner(),2); 
       board.Place(0,0,1);
-      board.Place(0,1,2);
-      board.Place(0,2,1);
-      assertEquals(board.GetWinner(),0); 
-      board.Place(1,0,2);
       board.Place(1,1,1);
-      board.Place(1,2,2);
-      assertEquals(board.GetWinner(),0); 
+      board.Place(0,2,1);
+      assertEquals(board.GetWinner(),2);
+  }
+  
+  @Test	
+  public void testHorizontalWinner() {
+      Board board = new Board();
+      board.Place(0,0,1);
+      board.Place(1,0,1);
       board.Place(2,0,1);
       assertEquals(board.GetWinner(),1); 
+      board.Place(1,0,2);
+      board.Place(2,1,2);
+      board.Place(1,2,2);
+      assertEquals(board.GetWinner(),1); 
+      
+      board = new Board();
+      board.Place(0,1,2);
+      board.Place(1,1,2);
+      board.Place(2,1,2);
+      assertEquals(board.GetWinner(),2); 
+      board.Place(0,0,1);
+      board.Place(2,1,1);
+      board.Place(0,2,1);
+      assertEquals(board.GetWinner(),2);
+      
+      board = new Board();
+      board.Place(0,2,2);
+      board.Place(1,2,2);
+      board.Place(2,2,2);
+      assertEquals(board.GetWinner(),2); 
+      board.Place(0,0,1);
+      board.Place(1,1,1);
+      board.Place(0,2,1);
+      assertEquals(board.GetWinner(),2);
   }
+  
    
 }
