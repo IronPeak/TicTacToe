@@ -1,4 +1,9 @@
 /usr/bin/env sh
+echo "Running script"
 if [ "$TRAVIS_BRANCH"" = "SeleniumTests" ]; then
+	echo "Sleeping"
 	sleep $HEROKU_BUILD_TIME
+	echo "Woke up"
 fi
+echo "Exiting"
+exit 
