@@ -13,7 +13,7 @@ public class Board {
  
     }
 
-    String GetBoard(){
+    public String GetBoard(){
         StringBuilder build = new StringBuilder();
         for(int y = 0; y < dim; y++){
             for(int x = 0; x < dim; x++){
@@ -21,6 +21,11 @@ public class Board {
             }
         }
     	return build.toString();
+    }
+    
+    public boolean Place(int x, int y, int symbol){
+        Grid[y][x] = symbol; 
+        return true;
     }
 }
 
