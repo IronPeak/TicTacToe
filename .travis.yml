@@ -19,6 +19,7 @@ before_install:
 - pip install --user codecov
 - "./bin/setuptests"
 after_success:
- - codecov
- - "chmod a+x /tmp/travis-automerge"
- - "BRANCHES_TO_MERGE_REGEX='*' BRANCH_TO_MERGE_INTO=DevelopmentBranch GITHUB_REPO=IronPeak/TicTacToe /tmp/travis-automerge"
+- codecov
+after_success:
+- "chmod a+x /tmp/travis-automerge"
+- "BRANCHES_TO_MERGE_REGEX='*' BRANCH_TO_MERGE_INTO=DevelopmentBranch GITHUB_REPO=IronPeak/TicTacToe /tmp/travis-automerge"
