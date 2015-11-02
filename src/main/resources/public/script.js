@@ -1,51 +1,46 @@
+game = {};
+
 $(document).ready(function() {
+  
+  game.getBoard();
+
   $('.box').on('click', function(event) {
-    $('#winner').text('');
-    var id = $(this).find('div').attr('id');
-    var position = id.charAt(id.length - 1);
-
-    $.ajax({
-      type: 'post',
-      url: '/setBox',
-      data: {
-        "position" : position
-      }
-      }).done(function(response) {
-          game.setBoard(response);
-      }).fail(function(err) {
-    });
-
-    setPlayer();
-
-    $.ajax({
-      type: 'post',
-      url: '/isWinner',
-      data: null
-      }).done(function(response) {
-        if (response != '0') {
-          displayWinner(response);
-        };
-      }).fail(function(err) {
-    });
+    game.updateBoard(this);
+    game.getPlayer();
+    game.isWinner();
   });
 
-  var form = $('form');
-  form.submit(function( event ) {
-    $.ajax({
-        type: form.attr('method'),
-        url: form.attr('action'),
-        data: null
+  $('#restart').on('click', function(event) {
+    game.restart();
+  });
+
+});
+
+game.getBoard = function() {
+  $.ajax({
+    type: 'get',
+    url: '/getBoard'
     }).done(function(response) {
-        game.setBoard(response);
-        setPlayer();
-    }).fail(function() {
-
-    });
-    event.preventDefault();
-    });
+      game.setBoard(response);
+      game.getPlayer();
+    }).fail(function(err) {
   });
+}
 
-  function displayWinner(winner) {
+game.isWinner = function() {
+  $.ajax({
+    type: 'get',
+    url: '/isWinner',
+    data: null
+    }).done(function(response) {
+      if (response != '0') {
+        game.displayWinner(response);
+      };
+    }).fail(function(err) {
+  });
+}
+
+game.displayWinner = function(winner) {
   if (winner == "1") {
     $('#winner').text('Player 1 is the winner!');
   } else if (winner == "2") {
@@ -53,36 +48,48 @@ $(document).ready(function() {
   } else if (winner == "3") {
     $('#winner').text("It's a Tie!");
   };
-  var player = $('#player').text();
+  game.restart();
+}
+
+game.restart = function() {
   $.ajax({
-      type: 'post',
-      url: '/restart',
-      data: null
-      }).done(function(response) {
+    type: 'post',
+    url: '/restart'
+    }).done(function(response) {
+      game.setBoard(response);
+      game.getPlayer();
+    }).fail(function(err) {
+  });
+}
+
+game.updateBoard = function(box) {
+  $('#winner').text('');
+  var id = $(box).find('div').attr('id');
+  var position = id.charAt(id.length - 1);
+
+  $.ajax({
+    type: 'post',
+    url: '/setBox',
+    data: {
+      "position" : position
+    }
+    }).done(function(response) {
         game.setBoard(response);
-        setPlayer();
-      }).fail(function(err) {
-    });
-  }
+    }).fail(function(err) {
+  });
+}
 
-  function setPlayer() {
-    $.ajax({
-      type: 'post',
-      url: '/setPlayer',
-      data: null
-      }).done(function(response) {
-          changePlayer(response);
-      }).fail(function(err) {
-    });
-  }
+game.getPlayer = function() {
+  $.ajax({
+    type: 'get',
+    url: '/getPlayer'
+    }).done(function(response) {
+        $('#player').text(response);
+    }).fail(function(err) {
+  });
+}
 
-  function changePlayer(player) {
-    $('#player').text(player);
-  }
-
-  game = {};
-
-  game.setBoard = function(boardState) {
+game.setBoard = function(boardState) {
   $.each($('.box'), function(index) {
     $(this).find('div').removeClass('empty player-X player-O');
     switch(boardState.charAt(index)) {
@@ -98,4 +105,3 @@ $(document).ready(function() {
     }
   });
 };
-  
