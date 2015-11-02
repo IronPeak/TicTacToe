@@ -16,10 +16,6 @@ public class Game {
         return player;
     }
 
-    public void setPlayer(int p) {
-        player = p;
-    }
-
     public String getBoard(){
         return board.getBoard();
     } 

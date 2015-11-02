@@ -15,14 +15,7 @@ $(document).ready(function() {
       }).fail(function(err) {
     });
 
-    $.ajax({
-      type: 'post',
-      url: '/setPlayer',
-      data: null
-      }).done(function(response) {
-          changePlayer(response);
-      }).fail(function(err) {
-    });
+    setPlayer();
 
     $.ajax({
       type: 'post',
@@ -44,17 +37,13 @@ $(document).ready(function() {
         data: null
     }).done(function(response) {
         game.setBoard(response);
-        changePlayer(1);
+        setPlayer();
     }).fail(function() {
 
     });
     event.preventDefault();
     });
   });
-
-  function changePlayer(player) {
-    $('#player').text(player);
-  }
 
   function displayWinner(winner) {
   if (winner == "1") {
@@ -71,8 +60,24 @@ $(document).ready(function() {
       data: null
       }).done(function(response) {
         game.setBoard(response);
+        setPlayer();
       }).fail(function(err) {
     });
+  }
+
+  function setPlayer() {
+    $.ajax({
+      type: 'post',
+      url: '/setPlayer',
+      data: null
+      }).done(function(response) {
+          changePlayer(response);
+      }).fail(function(err) {
+    });
+  }
+
+  function changePlayer(player) {
+    $('#player').text(player);
   }
 
   game = {};
