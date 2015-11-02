@@ -5,6 +5,7 @@ import static spark.Spark.*;
 import spark.servlet.SparkApplication;
 
 public class GameWeb implements SparkApplication {
+    Database db;
 
 	    public static void main(String[] args) {
 	        staticFileLocation("/public");
@@ -16,11 +17,19 @@ public class GameWeb implements SparkApplication {
 	        }
 	        gameweb.init();
     }
-
     @Override
     public void init() {
     	final Game game = new Game();
+	try{
+            db = new Database();
+	}
+        catch(Exception e){
+        
+        }
         post("/restart", (req, res) -> {
+            if(game.getWinner() == 3){
+               	db.incTies();
+	    }
             game.restart();
             res.status(200);
             return game.getBoard();
