@@ -18,10 +18,15 @@ public class Game {
         return board.GetBoard();
     }
     
+    
+    public int GetWinner(){
+        return board.GetWinner(); 
+    }
+    
     public boolean GameOver(){
         return board.GetWinner() != 0; 
     }
-
+    
     public boolean Move(int inp){
         if(inp < 0 || inp > 8) {
 	    return false;

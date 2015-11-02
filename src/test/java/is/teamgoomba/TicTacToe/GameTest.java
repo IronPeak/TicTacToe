@@ -71,4 +71,24 @@ public class GameTest {
       assertTrue(game.Move(8));
       assertTrue(game.GameOver());
   }
+
+  @Test	
+  public void testGetWinner(){ 
+      Game game = new Game();
+      assertTrue(game.Move(0)); 
+      assertTrue(game.Move(3));
+      assertTrue(game.Move(1));
+      assertTrue(game.Move(4));
+      assertTrue(game.Move(2));
+      assertEquals(game.GetWinner(),1); 
+
+      game = new Game();
+      assertTrue(game.Move(1)); 
+      assertTrue(game.Move(0));
+      assertTrue(game.Move(2));
+      assertTrue(game.Move(4));
+      assertTrue(game.Move(6));
+      assertTrue(game.Move(8));
+      assertEquals(game.GetWinner(),2);
+  }
 }
