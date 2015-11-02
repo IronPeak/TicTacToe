@@ -1,8 +1,8 @@
 #!/bin/bash
 if [ "$TRAVIS_BRANCH" = "DevelopmentBranch" ]; then	
 	
-	git pull
-	git checkout master
+	git pull origin master
+	git checkout origin master
 	git merge DevelopmentBranch
 	
 	# inside this git repo we'll pretend to be a new user
