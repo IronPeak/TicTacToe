@@ -23,8 +23,7 @@ public class GameWeb implements SparkApplication {
     	final Game game = new Game();
     	post("/setBox", (req, res) -> {
     		game.Move(
-    			Integer.valueOf(req.queryParams("position")),
-    			Integer.valueOf(req.queryParams("player"))
+    			Integer.valueOf(req.queryParams("position"))
     		);
     		res.status(200);
     		return game.GetBoard();
