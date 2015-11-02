@@ -16,6 +16,6 @@ addons:
     branch_pattern: master
 before_install:
 - pip install --user codecov
-- ./bin/waitforheroku
+- "./bin/setuptests"
 after_success:
 - codecov
