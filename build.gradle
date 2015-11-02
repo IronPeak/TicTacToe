@@ -37,11 +37,11 @@ jacocoTestReport {
 check.dependsOn jacocoTestReport
 //End jacoco
 
-mainClassName = "is.teamgoomba.TicTacToe.HelloWorld"
+mainClassName = "is.teamgoomba.TicTacToe.GameWeb"
 
 jar {
    manifest{
-      attributes("Main-Class": "is.teamgoomba.TicTacToe.HelloWorld")
+      attributes("Main-Class": "is.teamgoomba.TicTacToe.GameWeb")
    }
 }
 // In this section you declare where to find the dependencies of your project
