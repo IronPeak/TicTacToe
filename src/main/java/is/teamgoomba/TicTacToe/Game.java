@@ -16,12 +16,25 @@ public class Game {
 
     public String GetBoard(){
         return board.GetBoard();
+    } 
+    
+    public int GetWinner(){
+        return board.GetWinner(); 
     }
-
-    public boolean Move(int inp, int player){
+    
+    public boolean GameOver(){
+        return board.GetWinner() != 0; 
+    }
+    
+    public void restart(){
+        board = new Board();
+        player = 1;
+    }
+ 
+    public boolean Move(int inp){
         if(inp < 0 || inp > 8) {
-	       return false;
-	    } 
+	    return false;
+	} 
         int x = inp % dim;
         int y = inp / dim;
         boolean success = board.Place(x,y,player);
@@ -34,6 +47,6 @@ public class Game {
             return true;
         }
         return false;
-    }    
+    }
 }
 
