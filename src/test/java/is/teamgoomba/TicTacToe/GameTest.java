@@ -91,4 +91,17 @@ public class GameTest {
       assertTrue(game.Move(8));
       assertEquals(game.GetWinner(),2);
   }
+  
+  @Test	
+  public void testRestart(){ 
+      Game game = new Game();
+      game.Move(0); 
+      game.Move(3);
+      game.Move(1);
+      game.Move(4);
+      game.Move(2);
+      game.restart();
+      assertEquals(game.GetBoard(),"000000000"); 
+  }
+  
 }

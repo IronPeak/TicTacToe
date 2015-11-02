@@ -16,8 +16,7 @@ public class Game {
 
     public String GetBoard(){
         return board.GetBoard();
-    }
-    
+    } 
     
     public int GetWinner(){
         return board.GetWinner(); 
@@ -27,6 +26,11 @@ public class Game {
         return board.GetWinner() != 0; 
     }
     
+    public void restart(){
+        board = new Board();
+        player = 1;
+    }
+ 
     public boolean Move(int inp){
         if(inp < 0 || inp > 8) {
 	    return false;
