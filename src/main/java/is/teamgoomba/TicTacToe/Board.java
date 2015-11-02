@@ -2,9 +2,11 @@ package is.teamgoomba.TicTacToe;
 
 public class Board {
     private final int dim = 3;
+    private int spacesleft;
     int[][] Grid;
 
     Board(){
+        spacesleft = 3*3;
     	Grid = new int[][]{
         {0,0,0},
         {0,0,0},
@@ -33,12 +35,13 @@ public class Board {
  
     public boolean Place(int x, int y, int symbol){
         if(ValidPlace(x,y)){
+            spacesleft--;
             Grid[y][x] = symbol; 
             return true;
         } 
         return false;
     }
-
+    
     public int GetWinner(){
         for(int y = 0; y < dim; y++){
             if( (Grid[y][0] != 0) && (Grid[y][0] == Grid[y][1]) &&  (Grid[y][1] == Grid[y][2])){
@@ -57,6 +60,9 @@ public class Board {
             if(Grid[1][1] == Grid[0][2] &&  Grid[1][1] == Grid[2][0] ){
                 return Grid[1][1];
 	    }
+        }
+        if(spacesleft == 0){
+            return 3;
         }
         return 0;
     }
