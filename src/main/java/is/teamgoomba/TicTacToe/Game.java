@@ -2,14 +2,15 @@ package is.teamgoomba.TicTacToe;
 
 public class Game {
     Board board;
-    int first;
-    int player;
-    private final int dim = 3;
+    private int first;
+    private int player;
+    private final int dim;
 
     Game() {
         board = new Board();
         player = 1;
         first = 1;
+        dim = board.getDim();
     }
 
     public int getPlayer() {
@@ -31,7 +32,7 @@ public class Game {
     public boolean gameOver(){
         return board.getWinner() != 0; 
     }
-    
+    //resets the Board and swaps who goes first 
     public void restart(){
         board = new Board();
         if(first == 1){
@@ -43,7 +44,7 @@ public class Game {
     }
  
     public boolean move(int inp){
-        if(inp < 0 || inp > 8) {
+        if(inp < 0 || inp > (dim*dim-1)) {
 	    return false;
 	} 
         int x = inp % dim;
