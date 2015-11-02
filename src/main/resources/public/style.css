@@ -19,6 +19,24 @@ body {
 	padding-right: 30px;
 }
 
+.box div {
+	width: 100px;
+	height: 100px;
+	background-size: 100px 100px;
+}
+
 .box:hover {
 	opacity: 0.8;
+}
+
+.empty {
+	background-image:url('images/null.png');
+}
+
+.player-X {
+	background-image:url('images/X.png');
+}
+
+.player-O {
+	background-image:url('images/O.png');
 }

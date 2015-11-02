@@ -48,4 +48,60 @@ public class GameTest {
       assertTrue(game.Move(3));
       assertEquals(game.GetBoard(),"000100000");
   }  
+
+  @Test	
+  public void testGameOver(){ 
+      Game game = new Game();
+      assertTrue(game.Move(0)); 
+      assertTrue(game.Move(3));
+      assertTrue(game.Move(1));
+      assertTrue(game.Move(4));
+      assertFalse(game.GameOver());
+      assertTrue(game.Move(2));
+      assertTrue(game.GameOver()); 
+
+      game = new Game();
+      assertTrue(game.Move(1)); 
+      assertTrue(game.Move(0));
+      assertTrue(game.Move(2));
+      assertTrue(game.Move(4));
+      assertFalse(game.GameOver());
+      assertTrue(game.Move(6));
+      assertFalse(game.GameOver());
+      assertTrue(game.Move(8));
+      assertTrue(game.GameOver());
+  }
+
+  @Test	
+  public void testGetWinner(){ 
+      Game game = new Game();
+      assertTrue(game.Move(0)); 
+      assertTrue(game.Move(3));
+      assertTrue(game.Move(1));
+      assertTrue(game.Move(4));
+      assertTrue(game.Move(2));
+      assertEquals(game.GetWinner(),1); 
+
+      game = new Game();
+      assertTrue(game.Move(1)); 
+      assertTrue(game.Move(0));
+      assertTrue(game.Move(2));
+      assertTrue(game.Move(4));
+      assertTrue(game.Move(6));
+      assertTrue(game.Move(8));
+      assertEquals(game.GetWinner(),2);
+  }
+  
+  @Test	
+  public void testRestart(){ 
+      Game game = new Game();
+      game.Move(0); 
+      game.Move(3);
+      game.Move(1);
+      game.Move(4);
+      game.Move(2);
+      game.restart();
+      assertEquals(game.GetBoard(),"000000000"); 
+  }
+  
 }
