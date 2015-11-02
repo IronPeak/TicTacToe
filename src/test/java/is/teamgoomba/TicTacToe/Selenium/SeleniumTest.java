@@ -26,7 +26,7 @@ public class SeleniumTest {
 	@Test
 	public void testSelenium() throws Exception {
 		driver.get(baseUrl + "");
-		assertEquals("This should fail", driver.getTitle());
+		assertEquals("Tic Tac Toe", driver.getTitle());
 	}
 
 	@After
