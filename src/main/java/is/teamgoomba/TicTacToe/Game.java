@@ -2,12 +2,14 @@ package is.teamgoomba.TicTacToe;
 
 public class Game {
     Board board;
+    int first;
     int player;
     private final int dim = 3;
 
     Game() {
         board = new Board();
         player = 1;
+        first = 1;
     }
 
     public int getPlayer() {
@@ -28,7 +30,12 @@ public class Game {
     
     public void restart(){
         board = new Board();
-        player = 1;
+        if(first == 1){
+            player = 2;
+        }else{
+            player = 1;
+        }
+        first = player;
     }
  
     public boolean Move(int inp){

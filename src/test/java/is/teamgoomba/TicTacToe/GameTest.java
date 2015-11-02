@@ -101,7 +101,10 @@ public class GameTest {
       game.Move(4);
       game.Move(2);
       game.restart();
-      assertEquals(game.GetBoard(),"000000000"); 
+      assertEquals(game.GetBoard(),"000000000");
+      assertEquals(game.getPlayer(),2);
+      game.restart();
+      assertEquals(game.getPlayer(),1); 
   }
   
 }
