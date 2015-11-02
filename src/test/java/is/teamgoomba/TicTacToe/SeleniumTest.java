@@ -29,7 +29,7 @@ public class SeleniumTest {
 	public void testSelenium() throws Exception {
 		if(runSeleniumTests()) {
 			driver.get(baseUrl + "");
-			assertEquals("Tic Tac Toe", driver.getTitle());
+			assertEquals("This should fail", driver.getTitle());
 		}
 	}
 
@@ -46,7 +46,7 @@ public class SeleniumTest {
   
 	public static boolean runSeleniumTests() {
 		String branch = System.getenv("TRAVIS_BRANCH");
-		if(branch != null && branch == "SeleniumTests") {
+		if(branch != null && branch == "DevelopmentBranch") {
 			return true;
 		}
 		return false;
