@@ -12,7 +12,11 @@ public class Board {
         {0,0,0},
         {0,0,0}};
     }
-
+    int getDim(){
+        return dim;
+    }
+    //returns the board as a string read from top left to bottom right
+    // where 0 is empty, 1 is player 1 and 2 is player 2.
     public String getBoard(){
         StringBuilder build = new StringBuilder();
         for(int y = 0; y < dim; y++){
@@ -32,7 +36,7 @@ public class Board {
         }
         return true;
     }
- 
+    //places the given symbol into the grid if it is a valid position
     public boolean place(int x, int y, int symbol){
         if(validPlace(x,y)){
             spacesleft--;
@@ -41,7 +45,7 @@ public class Board {
         } 
         return false;
     }
-    
+    // returns 0 if there is no winner, 1 if player 1 wins 2 if player 2 wins and 3 if it is a tie 
     public int getWinner(){
         for(int y = 0; y < dim; y++){
             if( (grid[y][0] != 0) && (grid[y][0] == grid[y][1]) &&  (grid[y][1] == grid[y][2])){

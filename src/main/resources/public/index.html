@@ -32,9 +32,12 @@
   <body>
     <div class="container">
       <div class="col-md-12">
-        <h1>Tic Tac Toe</h1>
+        <p class="title">the</p>
+        <h1 class="title">Tic Tac Toe</h1>
+        <p class="title">challenge</p>
       </div>
-      <div class="col-lg-4 col-xs-12 col-lg-offset-4 col-xs-offset-0 board">
+      <div class="col-md-12">
+        <div class="board">
         <div class="col-md-12 one_row">
           <div class="col-xs-4 box">
             <div id="box_0" class="empty"></div>
@@ -69,12 +72,11 @@
           </div>
         </div>
       </div>
+      </div>
       <div class="col-xs-12">
-        <h2>Player <span id="player">1</span></h2>
+        <h2>player <span id="player">1</span></h2>
         <h3 id="winner"></h3>
-        <form method="post" action="/restart" class="form-inline" role="form">
-                <button type="submit">Restart</button>
-        </form>
+        <button id="restart" class="btn btn-default" type="button">new game</button>
       </div>
     </div><!-- /.container -->
 
@@ -85,102 +87,6 @@
     <script src="./Bootstrap_files/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="./Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
-
-    <script type="text/javascript">
-      $(document).ready(function() {
-
-        $('.box').on('click', function(event) {
-          $('#winner').text('');
-          var id = $(this).find('div').attr('id');
-          var position = id.charAt(id.length - 1);
-
-          $.ajax({
-            type: 'post',
-            url: '/setBox',
-            data: {
-              "position" : position
-            }
-            }).done(function(response) {
-                game.setBoard(response);
-            }).fail(function(err) {
-          });
-
-          $.ajax({
-            type: 'post',
-            url: '/setPlayer',
-            data: null
-            }).done(function(response) {
-                changePlayer(response);
-            }).fail(function(err) {
-          });
-
-          $.ajax({
-            type: 'post',
-            url: '/isWinner',
-            data: null
-            }).done(function(response) {
-              if (response != '0') {
-                displayWinner(response);
-              };
-            }).fail(function(err) {
-          });
-        });
-
-        var form = $('form');
-        form.submit(function( event ) {
-          $.ajax({
-              type: form.attr('method'),
-              url: form.attr('action'),
-              data: null
-          }).done(function(response) {
-              game.setBoard(response);
-              changePlayer(1);
-          }).fail(function() {
-
-          });
-          event.preventDefault();
-          });
-      });
-
-      function changePlayer(player) {
-        $('#player').text(player);
-      }
-
-      function displayWinner(winner) {
-        if (winner == "1") {
-          $('#winner').text('Player 1 is the winner!');
-        } else if (winner == "2") {
-          $('#winner').text('Player 2 is the winner!');
-        };
-        var player = $('#player').text();
-        $.ajax({
-            type: 'post',
-            url: '/restart',
-            data: null
-            }).done(function(response) {
-              game.setBoard(response);
-            }).fail(function(err) {
-          });
-      }
-
-      game = {};
-
-      game.setBoard = function(boardState) {
-        $.each($('.box'), function(index) {
-          $(this).find('div').removeClass('empty player-X player-O');
-          switch(boardState.charAt(index)) {
-            case '0':
-              $(this).find('div').addClass('empty');
-              break;
-            case '1':
-              $(this).find('div').addClass('player-X');
-              break;
-            case '2':
-              $(this).find('div').addClass('player-O');
-              break;
-          }
-        });
-      };
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
