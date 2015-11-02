@@ -25,6 +25,10 @@ public class GameWeb implements SparkApplication {
             res.status(200);
             return game.getBoard();
         });
+        get("/getBoard", (req, res) -> {
+            res.status(200);
+            return game.getBoard();
+        });
     	post("/setBox", (req, res) -> {
     		game.move(
     			Integer.valueOf(req.queryParams("position"))
@@ -32,11 +36,11 @@ public class GameWeb implements SparkApplication {
     		res.status(200);
     		return game.getBoard();
    		});
-        post("/setPlayer", (req, res) -> {
+        get("/getPlayer", (req, res) -> {
             res.status(200);
             return game.getPlayer();
         });
-        post("/isWinner", (req, res) -> {
+        get("/isWinner", (req, res) -> {
             res.status(200);
             return game.getWinner();
         });
