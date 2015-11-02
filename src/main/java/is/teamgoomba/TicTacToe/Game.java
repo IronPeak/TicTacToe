@@ -16,16 +16,20 @@ public class Game {
         return player;
     }
 
-    public String GetBoard(){
-        return board.GetBoard();
+    public void setPlayer(int p) {
+        player = p;
+    }
+
+    public String getBoard(){
+        return board.getBoard();
     } 
     
-    public int GetWinner(){
-        return board.GetWinner(); 
+    public int getWinner(){
+        return board.getWinner(); 
     }
     
-    public boolean GameOver(){
-        return board.GetWinner() != 0; 
+    public boolean gameOver(){
+        return board.getWinner() != 0; 
     }
     
     public void restart(){
@@ -38,13 +42,13 @@ public class Game {
         first = player;
     }
  
-    public boolean Move(int inp){
+    public boolean move(int inp){
         if(inp < 0 || inp > 8) {
 	    return false;
 	} 
         int x = inp % dim;
         int y = inp / dim;
-        boolean success = board.Place(x,y,player);
+        boolean success = board.place(x,y,player);
         if(success){
             if(player == 1){
                 this.player = 2;

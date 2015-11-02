@@ -5,6 +5,7 @@ jdk:
 env:
   global:
   - secure: m/W1vxMrEAGXjbvvOCY2RBl91xW0AubcpSu1zDlechfglhzGkqfG5TNNbVyGBTPvl0QH8/EDyaF8kz5X/oT14VDfB9IEm/ZzqKHyrm3uTgacqc1xfzpFfHJNh+vV8AajujJDJBBOa91uDkMuVwgo/fqmXpOGW8CD+rQG6UEifoFefKrWaj43Ly8aSwMu8G6Z/sVe/+X7FzgwBIGkhMu9x9ZCMFIZQ3debAbXXzYdNKIG6wjVYZO1/sTKaauGPtcOeVAdZgdkkcTzCb2NI5RW+jT76bGlIBVyYIEzyphwJEl5Qp6WATupads/ujiEdV2fV5vcU/exX2CFmrCr/FvE3G/eP9Z+k/e+DXyqpbcMRFzjsGBzxndMvgZ/hZrpsdag1bOy6ZRO00bi9QeVpTD8UcO3aDT6n1rAc/qMk7J5NY9oKGzuJ+EODMX2z1PMYo/AN6Eq+D/XlTlcCqV79P/mrJNUbLs78UXEMgIUwVQSDn4Vt8wEZaPU1tnJapejobA/l0azYIF+9vO8BprbeP6UTpbP5N0mK7RPftRy/EUhZCh8wxMyKKw6S9dUvgMPkG2F0vm2A7RbtBFIK1gzgfHVltwCUUrRTvgYSJKJRXZ+yUfstlINhmcwm32UTE8uyJ6+aVd+03Cxaxp0cLifdPLSp4a4EE9OT6s0LB8XVc+DPnY=
+  - secure: 1kp1DGM1x8Wd39GHXN427AoOzHuAyZcjum6gn4uwblQNCZ7RLwr9TA/bk792rC5KDek9LsCNU39o/sS3v0ENd0R/ckwT7mQ7MT5bijW4V2WLalEIDw8NGEr/2uKBQaWjd7W8yDSa1R9S4xyB/XIIndDrC5VSuZa0aDgg5EwEt31/SER912Ky0ZF+KaPqVA1chA/tlRLU8PIjcu711iGVDnPGdfgGTq4DybbtdXyBEclkMh4V5jEb6lFIoKOyn3p5um+zcL+FMTqXKyeltix5LW9/VRW/4wwV2lbfV6rjU6i/tFCra80arn7Fr28Z5RQVBcghSQT9+4v6FqJO05M7DQfMme/iq9dFnxrM1LEjipqEVltWDzrfvnqbd+MGdFFOzP68gl4GHE3zCPtuWgXJS0Opd5wRwCjmr8lTsNiBVWx0h22PXI38gF864lUNnMFbG8CDR6viBIoCHx9u8FujwKFM8KlmnvSw3OdQ/7Io4/OZFgPJLxhRKtueVg5GEtHPnCnYL/AESUH35w/aj7m1owZk0vrw4YBPqMZlLXq68FWzNmeqbOOOKslz1Fcu8sBRLJMlygo37qnqhtEosBZP3JrPrhtoygZoXtsx/vDyl/sciH/xtTnw8Q2q2GdveZYhzja8cf8l/nmKUVHXrl3EQIv8vCLj5OV9OaGSV54ai9w=
 addons:
   coverity_scan:
     project:
@@ -19,3 +20,6 @@ before_install:
 - "./bin/setuptests"
 after_success:
 - codecov
+after_success:
+- "chmod a+x /tmp/travis-automerge"
+- "BRANCHES_TO_MERGE_REGEX='*' BRANCH_TO_MERGE_INTO=DevelopmentBranch GITHUB_REPO=IronPeak/TicTacToe /tmp/travis-automerge"
