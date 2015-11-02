@@ -19,7 +19,7 @@ public class SeleniumTest {
 	@Before
 	public void setUp() throws Exception {
 		driver = new HtmlUnitDriver();
-		baseUrl = "goomba-developmentbranch.herokuapp.com/";
+		baseUrl = "http://goomba-developmentbranch.herokuapp.com/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
