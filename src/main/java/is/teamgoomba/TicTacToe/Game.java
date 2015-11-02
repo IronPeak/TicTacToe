@@ -18,7 +18,7 @@ public class Game {
         return board.GetBoard();
     }
 
-    public boolean Move(int inp, int player){
+    public boolean Move(int inp){
         if(inp < 0 || inp > 8) {
 	       return false;
 	    } 

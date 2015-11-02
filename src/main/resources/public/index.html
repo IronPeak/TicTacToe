@@ -72,6 +72,9 @@
       <div class="col-xs-12">
         <h2>Player <span id="player">1</span></h2>
         <h3>Score</h3>
+        <form method="post" action="/restart" class="form-inline" role="form">
+                <button type="submit">Restart</button>
+        </form>
       </div>
     </div><!-- /.container -->
 
@@ -90,12 +93,13 @@
           var id = $(this).find('div').attr('id');
           var position = id.charAt(id.length - 1);
 
+          changePlayer();
+
           $.ajax({
             type: 'post',
             url: '/setBox',
             data: {
-              "position" : position,
-              "player" : $('#player').text()
+              "position" : position
             }
           }).done(function(response) {
               game.setBoard(response);
@@ -103,6 +107,14 @@
           });
         });
       });
+
+      function changePlayer() {
+          if($('#player').text() == 1) {
+            $('#player').text('2');
+          } else {
+            $('#player').text('1');
+          }
+      }
 
       game = {};
 

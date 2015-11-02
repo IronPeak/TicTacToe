@@ -21,10 +21,10 @@ public class GameWeb implements SparkApplication {
     @Override
     public void init() {
     	final Game game = new Game();
+        //post("/restart", (req, res) -> game.restart());
     	post("/setBox", (req, res) -> {
     		game.Move(
-    			Integer.valueOf(req.queryParams("position")),
-    			Integer.valueOf(req.queryParams("player"))
+    			Integer.valueOf(req.queryParams("position"))
     		);
     		res.status(200);
     		return game.GetBoard();
