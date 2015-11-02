@@ -21,4 +21,4 @@ before_install:
 after_success:
 - codecov
 - "chmod a+x /tmp/travis-automerge"
-- "BRANCHES_TO_MERGE_REGEX='/.*/' BRANCH_TO_MERGE_INTO=DevelopmentBranch GITHUB_REPO=IronPeak/TicTacToe /tmp/travis-automerge"
+- "BRANCHES_TO_MERGE_REGEX='^f/' BRANCH_TO_MERGE_INTO=DevelopmentBranch GITHUB_REPO=IronPeak/TicTacToe /tmp/travis-automerge"
