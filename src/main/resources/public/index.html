@@ -71,7 +71,7 @@
       </div>
       <div class="col-xs-12">
         <h2>Player <span id="player">1</span></h2>
-        <h3>Score</h3>
+        <h3 id="winner"></h3>
         <form method="post" action="/restart" class="form-inline" role="form">
                 <button type="submit">Restart</button>
         </form>
@@ -90,10 +90,9 @@
       $(document).ready(function() {
 
         $('.box').on('click', function(event) {
+          $('#winner').text('');
           var id = $(this).find('div').attr('id');
           var position = id.charAt(id.length - 1);
-
-          changePlayer();
 
           $.ajax({
             type: 'post',
@@ -101,19 +100,67 @@
             data: {
               "position" : position
             }
-          }).done(function(response) {
-              game.setBoard(response);
-          }).fail(function(err) {
+            }).done(function(response) {
+                game.setBoard(response);
+            }).fail(function(err) {
+          });
+
+          $.ajax({
+            type: 'post',
+            url: '/setPlayer',
+            data: null
+            }).done(function(response) {
+                changePlayer(response);
+            }).fail(function(err) {
+          });
+
+          $.ajax({
+            type: 'post',
+            url: '/isWinner',
+            data: null
+            }).done(function(response) {
+              if (response != '0') {
+                displayWinner(response);
+              };
+            }).fail(function(err) {
           });
         });
+
+        var form = $('form');
+        form.submit(function( event ) {
+          $.ajax({
+              type: form.attr('method'),
+              url: form.attr('action'),
+              data: null
+          }).done(function(response) {
+              game.setBoard(response);
+              changePlayer(1);
+          }).fail(function() {
+
+          });
+          event.preventDefault();
+          });
       });
 
-      function changePlayer() {
-          if($('#player').text() == 1) {
-            $('#player').text('2');
-          } else {
-            $('#player').text('1');
-          }
+      function changePlayer(player) {
+        $('#player').text(player);
+      }
+
+      function displayWinner(winner) {
+        if (winner == "1") {
+          $('#winner').text('Player 1 is the winner!');
+        } else if (winner == "2") {
+          $('#winner').text('Player 2 is the winner!');
+        };
+        var player = $('#player').text();
+        $.ajax({
+            type: 'post',
+            url: '/restart',
+            data: null
+            }).done(function(response) {
+              game.setBoard(response);
+            }).fail(function(err) {
+          });
       }
 
       game = {};
