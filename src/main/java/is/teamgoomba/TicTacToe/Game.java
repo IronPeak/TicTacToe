@@ -2,20 +2,19 @@ package is.teamgoomba.TicTacToe;
 
 public class Game {
     Board board;
-    int player;
-    private final int dim = 3;
+    private int first;
+    private int player;
+    private final int dim;
 
     Game() {
         board = new Board();
         player = 1;
+        first = 1;
+        dim = board.getDim();
     }
 
     public int getPlayer() {
         return player;
-    }
-
-    public void setPlayer(int p) {
-        player = p;
     }
 
     public String getBoard(){
@@ -29,14 +28,19 @@ public class Game {
     public boolean gameOver(){
         return board.getWinner() != 0; 
     }
-    
+    //resets the Board and swaps who goes first 
     public void restart(){
         board = new Board();
-        player = 1;
+        if(first == 1){
+            player = 2;
+        }else{
+            player = 1;
+        }
+        first = player;
     }
  
     public boolean move(int inp){
-        if(inp < 0 || inp > 8) {
+        if(inp < 0 || inp > (dim*dim-1)) {
 	    return false;
 	} 
         int x = inp % dim;

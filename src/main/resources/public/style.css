@@ -1,22 +1,28 @@
 body {
 	background-color: #f0f0f2;
 	text-align: center;
+	padding: 0px;
+	font-family: "Lucida Console", Monaco, monospace;
+}
+
+.title {
+	font-size: 32px;
+	margin: 0px;
+	padding: 0px;
 }
 
 .board {
 	background-color: #424242;
-	min-width: 400px;
-}
-
-.one_row {
-	padding: 0px;
-	margin: 0px;
+	width: 360px;
+	height: 360px;
+	margin: 0 auto;
 }
 
 .box {
 	margin: 0px;
-	padding: 15px;
-	padding-right: 30px;
+	padding: 0px;
+	padding-top: 15px;
+	padding-left: 6px;
 }
 
 .box div {
@@ -39,4 +45,8 @@ body {
 
 .player-O {
 	background-image:url('images/O.png');
+}
+
+.btn {
+	border-radius: 0px;
 }
