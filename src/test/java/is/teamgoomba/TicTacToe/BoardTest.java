@@ -64,7 +64,7 @@ public class BoardTest {
       board.Place(2,0,2);
       board.Place(2,1,1);
       board.Place(2,2,2);
-      assertEquals(board.GetWinner(),0);
+      assertEquals(board.GetWinner(),3);
   }
    
   @Test	
