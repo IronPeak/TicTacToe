@@ -101,7 +101,10 @@ public class GameTest {
       game.move(4);
       game.move(2);
       game.restart();
-      assertEquals(game.getBoard(),"000000000"); 
+      assertEquals(game.getBoard(),"000000000");
+      assertEquals(game.getPlayer(),2);
+      game.restart();
+      assertEquals(game.getPlayer(),1); 
   }
   
 }
