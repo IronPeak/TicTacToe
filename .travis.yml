@@ -19,6 +19,13 @@ before_install:
 - pip install --user codecov
 - "./bin/setuptests"
 after_success:
+<<<<<<< HEAD
  - codecov
  - "chmod a+x /tmp/travis-automerge"
  - "BRANCHES_TO_MERGE_REGEX='*' BRANCH_TO_MERGE_INTO=DevelopmentBranch GITHUB_REPO=IronPeak/TicTacToe /tmp/travis-automerge"
+=======
+- codecov
+  - "curl -o /tmp/travis-automerge https://raw.githubusercontent.com/cdown/travis-automerge/master/travis-automerge"
+  - "chmod a+x /tmp/travis-automerge"
+  - "BRANCHES_TO_MERGE_REGEX='*' BRANCH_TO_MERGE_INTO=DevelopmentBranch GITHUB_REPO=IronPeak/TicTacToe /tmp/travis-automerge"
+>>>>>>> a6069c3877d679b3e78a35abacea98b21f55d674
