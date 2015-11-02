@@ -24,14 +24,14 @@ public class GameWeb implements SparkApplication {
         post("/restart", (req, res) -> {
             game.restart();
             res.status(200);
-            return game.GetBoard();
+            return game.getBoard();
         });
     	post("/setBox", (req, res) -> {
-    		game.Move(
+    		game.move(
     			Integer.valueOf(req.queryParams("position"))
     		);
     		res.status(200);
-    		return game.GetBoard();
+    		return game.getBoard();
    		});
         post("/setPlayer", (req, res) -> {
             res.status(200);
@@ -39,7 +39,7 @@ public class GameWeb implements SparkApplication {
         });
         post("/isWinner", (req, res) -> {
             res.status(200);
-            return game.GetWinner();
+            return game.getWinner();
         });
     }
 }
