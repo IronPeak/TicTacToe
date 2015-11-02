@@ -37,51 +37,91 @@
       <div class="col-lg-4 col-xs-12 col-lg-offset-4 col-xs-offset-0 board">
         <div class="col-md-12 one_row">
           <div class="col-xs-4 box">
-            <div id="box_01"><img src="images/null.png" alt="null" height="100" width="100"></div>
+            <div id="box_0" class="empty"></div>
           </div>
           <div class="col-xs-4 box">
-            <div id="box_02"><img src="images/X.png" alt="null" height="100" width="100"></div>
+            <div id="box_1" class="empty"></div>
           </div>
           <div class="col-xs-4 box">
-            <div id="box_03"><img src="images/O.png" alt="null" height="100" width="100"></div>
+            <div id="box_2" class="empty"></div>
           </div>
         </div>
         <div class="col-md-12 one_row">
           <div class="col-xs-4 box">
-            <div id="box_04"><img src="images/null.png" alt="null" height="100" width="100"></div>
+            <div id="box_3" class="empty"></div>
           </div>
           <div class="col-xs-4 box">
-            <div id="box_05"><img src="images/null.png" alt="null" height="100" width="100"></div>
+            <div id="box_4" class="empty"></div>
           </div>
           <div class="col-xs-4 box">
-            <div id="box_06"><img src="images/O.png" alt="null" height="100" width="100"></div>
+            <div id="box_5" class="empty"></div>
           </div>
           </div>
         <div class="col-md-12 one_row">
           <div class="col-xs-4 box">
-            <div id="box_07"><img src="images/X.png" alt="null" height="100" width="100"></div>
+            <div id="box_6" class="empty"></div>
           </div>
           <div class="col-xs-4 box">
-            <div id="box_08"><img src="images/X.png" alt="null" height="100" width="100"></div>
+            <div id="box_7" class="empty"></div>
           </div>
           <div class="col-xs-4 box">
-            <div id="box_09"><img src="images/O.png" alt="null" height="100" width="100"></div>
+            <div id="box_8" class="empty"></div>
           </div>
         </div>
       </div>
       <div class="col-xs-12">
-        <h1>Score</h1>
+        <h2>Player <span id="player">1</span></h2>
+        <h3>Score</h3>
       </div>
     </div><!-- /.container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./Starter Template for Bootstrap_files/jquery.min.js"></script>
-    <script src="./Starter Template for Bootstrap_files/bootstrap.min.js"></script>
+    <script src="./Bootstrap_files/jquery.min.js"></script>
+    <script src="./Bootstrap_files/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./Starter Template for Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
-  
+    <script src="./Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
 
-</body></html>
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+        $('.box').on('click', function(event) {
+          var id = $(this).find('div').attr('id');
+          var position = id.charAt(id.length - 1);
+
+          $.ajax({
+            type: 'post',
+            url: '/setBox',
+            data: {
+              "position" : position,
+              "player" : $('#player').text()
+            }
+          }).done(function(response) {
+              game.setBoard(response);
+          }).fail(function(err) {
+          });
+        });
+      });
+
+      game = {};
+
+      game.setBoard = function(boardState) {
+        $.each($('.box'), function(index) {
+          $(this).find('div').removeClass('empty player-X player-O');
+          switch(boardState.charAt(index)) {
+            case '0':
+              $(this).find('div').addClass('empty');
+              break;
+            case '1':
+              $(this).find('div').addClass('player-X');
+              break;
+            case '2':
+              $(this).find('div').addClass('player-O');
+              break;
+          }
+        });
+      };
+    </script>
+</body>
+</html>

@@ -1,6 +1,5 @@
 package is.teamgoomba.TicTacToe;
 
-
 public class Board {
     private final int dim = 3;
     int[][] Grid;
@@ -10,7 +9,6 @@ public class Board {
         {0,0,0},
         {0,0,0},
         {0,0,0}};
- 
     }
 
     public String GetBoard(){
