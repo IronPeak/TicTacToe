@@ -3,6 +3,8 @@
 #!/bin/bash
 if [ "$TRAVIS_BRANCH" = "DevelopmentBranch" ]; then
 	sleep $HEROKU_BUILD_TIME
+else
+	rm -rf src/test/java/is/teamgoomba/TicTacToe/Selenium
 fi
 exit 0
 
