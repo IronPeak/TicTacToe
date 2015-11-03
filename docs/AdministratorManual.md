@@ -18,9 +18,9 @@ The system uses the following software:
 
 ## Deploying to Heroku
 1. Login to heroku as seen in getting started in [https://toolbelt.heroku.com/](https://toolbelt.heroku.com/)
-2. From the projects root directory run 'heroku create APPNAME' where 'APPNAME' is the desired name for the application.
+2. From the projects root directory run 'heroku create name' where 'name' is the desired name for the application.
 3. run 'git push heroku master'
-4. Now the application should be running at [APPNAME.herokuapp.com](http://APPNAME.herokuapp.com)
+4. Now the application should be running at [name.herokuapp.com](http://name.herokuapp.com)
 
 ## Quality control
 The readme file found at http://github.com/IronPeak/TicTacToe gives the administrator information on test results, the code coverage and whether the app has been deployed to Heroku.
