@@ -40,6 +40,21 @@ public class SeleniumTest {
 			assertEquals("empty", classAttribute);
 		}
 	}
+	
+	@Test
+	public void testTest
+	
+	private void resetBoard() {
+		driver.get(baseUrl + "");
+		WebElement newGameButton = driver.findElement(By.id("restart"));
+		newGameButton.click();
+	}
+	
+	private int currentPlayer() {
+		driver.get(baseUrl + "");
+		WebElement player = driver.findElement(By.id("player"));
+		return Integer.parseInt(player.getText());
+	}
 
 	@After
 	public void tearDown() throws Exception {
