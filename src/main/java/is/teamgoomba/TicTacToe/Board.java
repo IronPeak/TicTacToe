@@ -45,7 +45,9 @@ public class Board {
         } 
         return false;
     }
-    // returns 0 if there is no winner, 1 if player 1 wins 2 if player 2 wins and 3 if it is a tie 
+    // returns 0 if there is no winner, 1 if player 1 wins 2 if
+    // player 2 wins and 3 if it is a tie 
+    // undefined behaviour if both players win
     public int getWinner(){
         for(int y = 0; y < dim; y++){
             if( (grid[y][0] != 0) && (grid[y][0] == grid[y][1]) &&  (grid[y][1] == grid[y][2])){
