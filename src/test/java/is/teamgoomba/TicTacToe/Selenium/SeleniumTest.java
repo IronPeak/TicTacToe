@@ -24,9 +24,21 @@ public class SeleniumTest {
 	}
 
 	@Test
-	public void testSelenium() throws Exception {
+	public void testTitle() throws Exception {
 		driver.get(baseUrl + "");
 		assertEquals("Tic Tac Toe", driver.getTitle());
+	}
+	
+	@Test
+	public void testClearBoard() {
+		driver.get(baseUrl + "");
+		WebElement newGameButton = driver.findElement(By.id("restart"));
+		newGameButton.click();
+		for(int i = 0; i < 9; i++) {
+			WebElement box = driver.findElement(By.id("box_" + i));
+			String classAttribute = box.getAttribute("class");
+			assertEquals("empty", classAttribute);
+		}
 	}
 
 	@After
