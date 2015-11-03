@@ -9,6 +9,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SeleniumTest {
 	private HtmlUnitDriver driver;
@@ -41,16 +43,24 @@ public class SeleniumTest {
 		}
 	}
 	
-	private void resetBoard() {
-		driver.get(baseUrl + "");
-		WebElement newGameButton = driver.findElement(By.id("restart"));
-		newGameButton.click();
-	}
-	
-	private int currentPlayer() {
+	@Test
+	public void testStartPlayerChanges() {
 		driver.get(baseUrl + "");
 		WebElement player = driver.findElement(By.id("player"));
-		return Integer.parseInt(player.getText());
+		WebElement newGameButton = driver.findElement(By.id("restart"));
+		newGameButton.click();
+		String expectedvalue;
+		if(player.getText() == "1") {
+			expectedvalue = "2";
+		} else {
+			expectedvalue = "1";
+		}
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			wait.until(ExpectedConditions.textToBePresentInElementLocated(By.id("player"), expectedvalue));
+		} catch(Exception e) {
+			fail("Player did not change!");
+		}
 	}
 
 	@After
