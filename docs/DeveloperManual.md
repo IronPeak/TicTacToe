@@ -30,4 +30,4 @@ The software required to develop this project are as follows:
 	3. `git commit -m [informative commit message]`
 	4. `git push origin [the new branch]`
 2. When changes are ready they should be merge into the development branch using a pull request if appropriate.
-3. If all tests on the development branch are successful it can be merge into master with a pull request. The pull request should be reviewed by an administrator.or another member of your team.
+3. If all tests on the development branch are successful it can be merge into master with a pull request. The pull request should be reviewed by an administrator or another member of your team.
