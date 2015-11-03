@@ -3,6 +3,7 @@ game = {};
 $(document).ready(function() {
   
   game.getBoard();
+  setInterval(game.getBoard, 1000);
 
   $('.box').on('click', function(event) {
     game.updateBoard(this);
@@ -24,6 +25,9 @@ game.getBoard = function() {
       game.setBoard(response);
       game.getPlayer();
     }).fail(function(err) {
+      $('#error')
+        .text('setting the board failed!')
+        .show();
   });
 }
 
@@ -37,16 +41,19 @@ game.isWinner = function() {
         game.displayWinner(response);
       };
     }).fail(function(err) {
+      $('#error')
+        .text('there was a prolem when finding the winner!')
+        .show();
   });
 }
 
 game.displayWinner = function(winner) {
   if (winner == "1") {
-    $('#winner').text('Player 1 is the winner!');
+    $('#winner').text('player 1 is the winner!');
   } else if (winner == "2") {
-    $('#winner').text('Player 2 is the winner!');
+    $('#winner').text('player 2 is the winner!');
   } else if (winner == "3") {
-    $('#winner').text("It's a Tie!");
+    $('#winner').text("it's a tie!");
   };
   game.restart();
 }
@@ -59,6 +66,9 @@ game.restart = function() {
       game.setBoard(response);
       game.getPlayer();
     }).fail(function(err) {
+      $('#error')
+        .text('restart failed!')
+        .show();
   });
 }
 
@@ -76,6 +86,9 @@ game.updateBoard = function(box) {
     }).done(function(response) {
         game.setBoard(response);
     }).fail(function(err) {
+      $('#error')
+        .text('updating the board failed!')
+        .show();
   });
 }
 
@@ -86,6 +99,9 @@ game.getPlayer = function() {
     }).done(function(response) {
         $('#player').text(response);
     }).fail(function(err) {
+      $('#error')
+        .text('finding the correct player failed!')
+        .show();
   });
 }
 
