@@ -1,9 +1,9 @@
 # Administration Manual
 
 ## Introduction
-The Tic Tac Toe game is developed by the Goomba team. This manual is intended for system and template administrators. It gives a comprehensive information about the steps needing to fulfill to release a new version of the game.
+The TicTacToe game is developed by team Goomba. This manual is intended for system and template administrators. It gives comprehensive information about the steps required to release a new version of the game.
 
-The game is self-deployed, so it does not require much interaction from the administrator other than reviewing that the process is correct and working fully.
+The game is deployed on the Heroku server when pull requests on master are accepted, so it does not require much interaction from the administrator other than reviewing that the process is correct and fully working when Heroku servers are up and running.
 
 ## Git repository and tools
 A list of user accounts and links is as follows:
@@ -21,22 +21,20 @@ The system uses the following software:
 * JUnit
 * Spark
 * TravisCI
-* Postgres
 * Codecov
 * Coverity scan
-* Rocket League
 * Java 8
 
-When a new version is deployed, the developer pushes it's code to the DevelopmentBranch. It then tests selenium tests, travis tests and code coverage.
+When a new version is deployed, the developer pushes the code to the DevelopmentBranch. It then runs Selenium tests, Travis tests and code coverage.
 When those tests are finished, another developer / administrator accepts the pull request and creates a new pull request from DevelopmentBranch towards master.
 
-## Ensuring the product
-The readme file inside the github repo gives the administrator information on how the tests have gone, the code coverage and if the heroku is deployed.
+## Quality control
+The readme file found at http://github.com/IronPeak/TicTacToe gives the administrator information on test results, the code coverage and whether the app has been deployed to Heroku.
 
 ## Team Culture
 
-The team consists of 5 developers who act in a slice-the-cake role for the team. Each team member now has a role of developer, tester, administrator and product owner. Giving the team members equal value.
+The team consists of 5 developers. Each team member has a role of developer, tester, administrator and product owner. Giving the team members equal value.
 
-We work in a test driven development scheme, giving us a good understanding how things work from the beginning.
+The team uses test driven development, which helps members visualize the complete workflow from start to finish.
 
-We strive for continuious delivery to give the user the best experience available at each team. We also want to minimize the risk of giving a new version.
+We strive for continuious delivery to give the user the best experience available at each time. We also want to minimize the risk of releasing a new version, therefore we release quite frequently.
