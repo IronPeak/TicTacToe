@@ -105,11 +105,3 @@ game.setBoard = function(boardState) {
     }
   });
 };
-<<<<<<< Updated upstream
-
-
-  
-
-=======
-  
->>>>>>> Stashed changes
