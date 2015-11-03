@@ -121,4 +121,3 @@ game.setBoard = function(boardState) {
     }
   });
 };
-

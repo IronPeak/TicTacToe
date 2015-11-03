@@ -3,6 +3,12 @@
 <a href="https://scan.coverity.com/projects/ironpeak-tictactoe"><img alt="Coverity Scan Build Status" src="https://scan.coverity.com/projects/6761/badge.svg"/></a>
 ![Heroku](https://heroku-badge.herokuapp.com/?app=goomba-tictactoe)
 
+[Developers manual](docs/DeveloperManual.md)
+
+[Administration manual](docs/AdministratorManual.md)
+
+[Design report](docs/DesignReport.md)
+
 <a href="https://goomba-tictactoe.herokuapp.com/">Web app</a>
 
 <a href="https://travis-ci.org/IronPeak/TicTacToe">Travis CI</a>
