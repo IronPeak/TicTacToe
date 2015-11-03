@@ -12,9 +12,8 @@ The software required to develop this project are as follows:
 * Selenium
 
 ## Build Process
-Todo: The build process is.....
+The build process is.....
 
 ## Coding Rules
-Todo: code rule checker
+
 ## Team Culture
-Todo: write cultural things
