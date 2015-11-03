@@ -41,9 +41,6 @@ public class SeleniumTest {
 		}
 	}
 	
-	@Test
-	public void testTest
-	
 	private void resetBoard() {
 		driver.get(baseUrl + "");
 		WebElement newGameButton = driver.findElement(By.id("restart"));
