@@ -1,38 +1,35 @@
 # Administration Manual
 
 ## Introduction
-The TicTacToe game is developed by team Goomba. This manual is intended for system and template administrators. It gives comprehensive information about the steps required to release a new version of the game.
+The TicTacToe game is developed by Team Goomba. This manual is intended for system administrators. The administrators should have basic understanding of Heroku as well as Git.
 
-The game is deployed on the Heroku server when pull requests on master are accepted, so it does not require much interaction from the administrator other than reviewing that the process is correct and fully working when Heroku servers are up and running.
+## Requirements
+The software required to manage this project are as follows:
 
-## Git repository and tools
-A list of user accounts and links is as follows:
+* [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [Heroku Toolbelt](https://toolbelt.heroku.com/)
+* [Travis - CI](https://github.com/travis-ci/travis.rb)
 
-* Github: https://github.com/IronPeak/TicTacToe
-* CodeCov: https://codecov.io/github/IronPeak/TicTacToe?branch=master
-* Travis: https://travis-ci.org/IronPeak/TicTacToe
+## Getting Started
 
-## Software integration
+1. Install necessary software
+2. Clone the git repository to your administration machine 'git clone https://github.com/IronPeak/TicTacToe.git'
 The system uses the following software:
 
-* Gradle
-* Selenium
-* Heroku
-* JUnit
-* Spark
-* TravisCI
-* Codecov
-* Coverity scan
-* Java 8
-
-When a new version is deployed, the developer pushes the code to the DevelopmentBranch. It then runs Selenium tests, Travis tests and code coverage.
-When those tests are finished, another developer / administrator accepts the pull request and creates a new pull request from DevelopmentBranch towards master.
+## Deploying to Heroku
+1. Login to heroku as seen in getting started in [https://toolbelt.heroku.com/](https://toolbelt.heroku.com/)
+2. From the projects root directory run 'heroku create APPNAME' where 'APPNAME' is the desired name for the application.
+3. run 'git push heroku master'
+4. Now the application should be running at [APPNAME.herokuapp.com](http://APPNAME.herokuapp.com)
 
 ## Quality control
 The readme file found at http://github.com/IronPeak/TicTacToe gives the administrator information on test results, the code coverage and whether the app has been deployed to Heroku.
 
-## Team Culture
+## Running locally
+1. From the project root directory run './bin/deploy'
+2. The application should be running on the default port at [localhost:4567](http://localhost:4567/) 
 
+## Team Culture
 The team consists of 5 developers. Each team member has a role of developer, tester, administrator and product owner. Giving the team members equal value.
 
 The team uses test driven development, which helps members visualize the complete workflow from start to finish.
