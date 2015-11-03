@@ -6,7 +6,7 @@
 
 This report outlines the initial design of our TicTacToe application meant as an exercise in setting up a technical infrastructure to support agile development created by Team Goomba. Although the application itself will not be the main focus in this exercise an initial design report can help members get a cohesive visualisation of the product which is vital for development.
 
-The TicTacToe Challenge is a very simple web application that allows two people to enjoy a game of Tic tac toe. The report displays the initial wireframe, as well as a more graphic design of the application. A simple class diagram is also included, it displays the initial class design and will therefore most likely change somewhat during development. Finally the report describes the technical environment which the team is planning to use along with the programming rules they plan to follow.
+The TicTacToe Challenge is a very simple web application that allows two people to enjoy a game of TicTacToe. The report displays the initial wireframe, as well as a more graphic design of the application. A simple class diagram is also included, it displays the initial class design and will therefore most likely change somewhat during development. Finally the report describes the technical environment which the team is planning to use along with the programming rules they plan to follow.
 ## Prototypes
 ### Wireframes
 The first steps in designing the system’s user interface as well as trying to determine the main aspects
@@ -23,7 +23,7 @@ Although the complete design of the website has not been completely decided we w
 ![Graphic Design](/docs/images/TicTacToeGraphicDesign.png)
 ## Class Diagram
 The class diagram is meant as an overall visual representation of the structure of the TicTacToe game. The diagram shows the game’s classes, their attributes, operations and/or methods, and the relationships among the objects. Although it is difficult, at this point in development, to show the exact structure of the whole system we felt it was important for us to give as accurate of a picture as possible. Nevertheless, we will be fully prepared to reevaluate the structure of the system when, and if, that becomes necessary.
-The board class maintains the board itself, it takes care of placing the given symbol to given coordinates and can tell if there is a winner etc. The game class has an instance of board and takes care of which player is supposed to move and parsing moves to place on the board
+The board class maintains the board itself, it takes care of placing the given symbol to given coordinates and can tell if there is a winner etc. The game class has an instance of board and takes care of which player is supposed to move as well as parsing moves to place on the board.
 
 ![Class Diagram](/docs/images/class-diagram.png)
 ## Description of Technical Environment
@@ -32,11 +32,11 @@ The game is written in Java and implemented with test driven development. We pla
 * For organizing workflow we are using Trello
 * Microsoft Excel was used to design wireframe.
 * The project will be developed on a machine provided by the course, as well as our own.
-* For assistance we will use Notepad++ and Sublime Text while coding
+* For assistance we will use Notepad++, VIM and Sublime Text while coding.
 * The system will be designed with Firefox and Google Chrome in mind.
 * Both Google Chrome and Firefox have built in development tools that we will use for debugging.
 * Source control will be provided by git.
-* For hosting of source control we use github.com
+* For hosting of source control we use github.com.
 * Travis will test our project and deploy to Heroku.
 * Mou editor will be used to write reports and manuals.
 * The graphic design will be developed in Photoshop as well as the base images used in the project.
