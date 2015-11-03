@@ -47,6 +47,11 @@ public class SeleniumTest {
 	@Test
 	public void testStartPlayerChanges() {
 		driver.get(baseUrl + "");
+		try {
+			Thread.sleep(4000);
+		} catch(Exception e) {
+			
+		}
 		WebElement player = driver.findElement(By.id("player"));
 		WebElement newGameButton = driver.findElement(By.id("restart"));
 		String expectedvalue;
@@ -57,6 +62,7 @@ public class SeleniumTest {
 		}
 		newGameButton.click();
 		try {
+			Thread.sleep(4000);
 			WebDriverWait wait = new WebDriverWait(driver, 10);
 			wait.until(ExpectedConditions.textToBePresentInElementLocated(By.id("player"), expectedvalue));
 		} catch(Exception e) {
@@ -92,7 +98,6 @@ public class SeleniumTest {
 	public static ExpectedCondition<Boolean> classIs(final By locator, final String classname) {
 		return new ExpectedCondition<Boolean>() {
 			private String currentClass = "";
-
 			@Override
 			public Boolean apply(WebDriver driver) {
 				WebElement element = driver.findElement(locator);
