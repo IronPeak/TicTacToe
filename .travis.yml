@@ -16,7 +16,7 @@ addons:
     build_command: "./gradlew build"
     branch_pattern: master
 before_install:
-- pip install --user codecov
+- pip install --upgrade codecov
 - "./bin/setuptests"
 after_success:
 - codecov
