@@ -19,7 +19,7 @@ The software required to manage this project are as follows:
 
 ## Deploying to Heroku
 1. [Login to Heroku](https://toolbelt.heroku.com/) as seen in getting started.
-2. From the projects root directory run `heroku create [name]` where `name` is the desired name for the application.
+2. From the projects root directory run `heroku create [name]` where `[name]` is the desired name for the application.
 3. run `git push heroku master`
 4. Now the application should be running at [name.herokuapp.com](http://[name].herokuapp.com)
 
