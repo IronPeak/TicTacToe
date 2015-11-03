@@ -21,7 +21,7 @@ The software required to develop this project are as follows:
 > **Note:** The deploy command will build and run all unit tests before  deploying but if you only wish to build the project or run tests you can run `gradle build` for building or `gradle test`
 
 ## Coding Rules
-* Suggested coding rules can be found in the [design report](https://github.com/IronPeak/TicTacToe/blob/master/docs/DesignAnalysisReport.md).
+* Suggested coding rules can be found in the [design report](https://github.com/IronPeak/TicTacToe/blob/master/docs/DesignReport.md).
 
 ## Committing and Pushing Changes
 1. Any new features should ideally be pushed into a new branch while being worked on.
