@@ -1,6 +1,6 @@
-# Design and analysis Report
+# Design Report
 
-![Logo](/Reports/images/tictactoe_logo.png)
+![Logo](/docs/images/tictactoe_logo.png)
 
 ## Introduction
 
@@ -16,16 +16,16 @@ and necessary information. The wireframes were sketched up in Excel,
 giving a good skeletal framework of the website. The wireframes do not necessarily reflect the final
 outcome of the TicTacToe user interface.
 
-![Wireframe](/Reports/images/Wireframe.png) 
+![Wireframe](/docs/images/Wireframe.png)
 ### Graphic Design
 Although the complete design of the website has not been completely decided we wanted to have a base idea for the graphic design of the site. Our priority will of course always be the functionality of the website and the design aesthetics will be secondary. However if time allows hopefully these prototypes will not be far from the final result.
 
-![Graphic Design](/Reports/images/TicTacToeGraphicDesign.png) 
+![Graphic Design](/docs/images/TicTacToeGraphicDesign.png)
 ## Class Diagram
 The class diagram is meant as an overall visual representation of the structure of the TicTacToe game. The diagram shows the game’s classes, their attributes, operations and/or methods, and the relationships among the objects. Although it is difficult, at this point in development, to show the exact structure of the whole system we felt it was important for us to give as accurate of a picture as possible. Nevertheless, we will be fully prepared to reevaluate the structure of the system when, and if, that becomes necessary.
-The board class checks if the input given is valid before placing it. Furthermore it checks if the game is over for each move. The game class keeps track of the game and manages moves.
+The board class maintains the board itself, it takes care of placing the given symbol to given coordinates and can tell if there is a winner etc. The game class has an instance of board and takes care of which player is supposed to move and parsing moves to place on the board
 
-![Class Diagram](/Reports/Classdiagram/class-diagram.png) 
+![Class Diagram](/docs/images/class-diagram.png)
 ## Description of Technical Environment
 The game is written in Java and implemented with test driven development. We plan to use Heroku to host the web application and Selenium to test the user interface, nevertheless these tools will only be used if the core functionality is ready.
 
