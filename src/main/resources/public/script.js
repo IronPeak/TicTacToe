@@ -74,7 +74,7 @@ game.restart = function() {
 
 game.updateBoard = function(box) {
   $('#winner').text('');
-  var id = $(box).find('div').attr('id');
+  var id = $(box).find('button').attr('id');
   var position = id.charAt(id.length - 1);
 
   $.ajax({
@@ -107,16 +107,16 @@ game.getPlayer = function() {
 
 game.setBoard = function(boardState) {
   $.each($('.box'), function(index) {
-    $(this).find('div').removeClass('empty player-X player-O');
+    $(this).find('button').removeClass('empty player-X player-O');
     switch(boardState.charAt(index)) {
       case '0':
-        $(this).find('div').addClass('empty');
+        $(this).find('button').addClass('empty');
         break;
       case '1':
-        $(this).find('div').addClass('player-X');
+        $(this).find('button').addClass('player-X');
         break;
       case '2':
-        $(this).find('div').addClass('player-O');
+        $(this).find('button').addClass('player-O');
         break;
     }
   });

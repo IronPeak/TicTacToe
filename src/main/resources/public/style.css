@@ -21,11 +21,30 @@ body {
 .box {
 	margin: 0px;
 	padding: 0px;
-	padding-top: 15px;
-	padding-left: 6px;
+	padding-top: 12px;
+	padding-left: 0px;
 }
 
-.box div {
+.button_box {
+	background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    border-spacing: 0;
+    color: #26589F;
+    font-family: 'PT Sans Narrow',sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.42rem;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0;
+    width: 100px;
+    height: 100px;
+}
+
+.box button {
 	width: 100px;
 	height: 100px;
 	background-size: 100px 100px;
