@@ -13,19 +13,19 @@ The software required to manage this project are as follows:
 ## Getting Started
 
 1. Install the necessary software
-2. Clone the git repository to your administration machine ´git clone https://github.com/IronPeak/TicTacToe.git´
+2. Clone the git repository to your administration machine `git clone https://github.com/IronPeak/TicTacToe.git`
 
 ## Deploying to Heroku
 1. [Login to Heroku](https://toolbelt.heroku.com/) as seen in getting started.
-2. From the projects root directory run ´heroku create [name]´ where ´name´ is the desired name for the application.
-3. run ´git push heroku master´
-4. Now the application should be running at [name.herokuapp.com](http://name.herokuapp.com)
+2. From the projects root directory run `heroku create [name]` where `name` is the desired name for the application.
+3. run `git push heroku master`
+4. Now the application should be running at [name.herokuapp.com](http://[name].herokuapp.com)
 
 ## Quality control
 The readme file found at http://github.com/IronPeak/TicTacToe gives the administrator information on test results, the code coverage and whether the app has been deployed to Heroku.
 
 ## Running locally
-1. From the project root directory run ´./bin/deploy´
+1. From the project root directory run `./bin/deploy`
 2. The application should be running on the default port at [localhost:4567](http://localhost:4567/) 
 
 ## Team Culture
