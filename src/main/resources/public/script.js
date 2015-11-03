@@ -3,6 +3,7 @@ game = {};
 $(document).ready(function() {
   
   game.getBoard();
+  setInterval(game.getBoard, 1000);
 
   $('.box').on('click', function(event) {
     game.updateBoard(this);
@@ -23,7 +24,11 @@ game.getBoard = function() {
     }).done(function(response) {
       game.setBoard(response);
       game.getPlayer();
+      game.isWinner();
     }).fail(function(err) {
+      $('#error')
+        .text('setting the board failed!')
+        .show();
   });
 }
 
@@ -37,18 +42,20 @@ game.isWinner = function() {
         game.displayWinner(response);
       };
     }).fail(function(err) {
+      $('#error')
+        .text('there was a prolem when finding the winner!')
+        .show();
   });
 }
 
 game.displayWinner = function(winner) {
   if (winner == "1") {
-    $('#winner').text('Player 1 is the winner!');
+    $('#winner').text('player 1 is the winner!');
   } else if (winner == "2") {
-    $('#winner').text('Player 2 is the winner!');
+    $('#winner').text('player 2 is the winner!');
   } else if (winner == "3") {
-    $('#winner').text("It's a Tie!");
+    $('#winner').text("it's a tie!");
   };
-  game.restart();
 }
 
 game.restart = function() {
@@ -59,12 +66,15 @@ game.restart = function() {
       game.setBoard(response);
       game.getPlayer();
     }).fail(function(err) {
+      $('#error')
+        .text('restart failed!')
+        .show();
   });
 }
 
 game.updateBoard = function(box) {
   $('#winner').text('');
-  var id = $(box).find('div').attr('id');
+  var id = $(box).find('button').attr('id');
   var position = id.charAt(id.length - 1);
 
   $.ajax({
@@ -76,6 +86,9 @@ game.updateBoard = function(box) {
     }).done(function(response) {
         game.setBoard(response);
     }).fail(function(err) {
+      $('#error')
+        .text('updating the board failed!')
+        .show();
   });
 }
 
@@ -86,21 +99,24 @@ game.getPlayer = function() {
     }).done(function(response) {
         $('#player').text(response);
     }).fail(function(err) {
+      $('#error')
+        .text('finding the correct player failed!')
+        .show();
   });
 }
 
 game.setBoard = function(boardState) {
   $.each($('.box'), function(index) {
-    $(this).find('div').removeClass('empty player-X player-O');
+    $(this).find('button').removeClass('empty player-X player-O');
     switch(boardState.charAt(index)) {
       case '0':
-        $(this).find('div').addClass('empty');
+        $(this).find('button').addClass('empty');
         break;
       case '1':
-        $(this).find('div').addClass('player-X');
+        $(this).find('button').addClass('player-X');
         break;
       case '2':
-        $(this).find('div').addClass('player-O');
+        $(this).find('button').addClass('player-O');
         break;
     }
   });
