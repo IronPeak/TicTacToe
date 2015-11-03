@@ -24,6 +24,7 @@ game.getBoard = function() {
     }).done(function(response) {
       game.setBoard(response);
       game.getPlayer();
+      game.isWinner();
     }).fail(function(err) {
       $('#error')
         .text('setting the board failed!')
@@ -55,7 +56,6 @@ game.displayWinner = function(winner) {
   } else if (winner == "3") {
     $('#winner').text("it's a tie!");
   };
-  game.restart();
 }
 
 game.restart = function() {
