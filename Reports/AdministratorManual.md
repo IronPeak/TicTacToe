@@ -37,4 +37,4 @@ The team consists of 5 developers. Each team member has a role of developer, tes
 
 The team uses test driven development, which helps members visualize the complete workflow from start to finish.
 
-We strive for continuious delivery to give the user the best experience available at each time. We also want to minimize the risk of releasing a new version, therefore we release quite frequently.
+The team strives for continuous delivery to make sure that the user has access to the most up to date version possible. We also want to minimize the risks involved when deploying a new version.
