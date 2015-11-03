@@ -1,7 +1,7 @@
 # Administration Manual
 
 ## Introduction
-The TicTacToe game is developed by Team Goomba. This manual is intended for system administrators. The administrators should have basic understanding of Java, Heroku as well as test driven development.
+The TicTacToe game is developed by Team Goomba. This manual is intended for system administrators. The administrators should have basic understanding of Java, Gradle, Travis Heroku as well as test driven development.
 
 ## Requirements
 The software required to manage this project are as follows:
@@ -9,6 +9,8 @@ The software required to manage this project are as follows:
 * [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [Heroku Toolbelt](https://toolbelt.heroku.com/)
 * [Travis - CI](https://github.com/travis-ci/travis.rb)
+* [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Gradle](https://docs.gradle.org/current/userguide/installation.html)
 
 ## Getting Started
 
