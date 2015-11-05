@@ -41,7 +41,7 @@ public class Board {
         if(validPlace(x,y)){
             spacesleft--;
             grid[y][x] = symbol; 
-            return false;
+            return true;
         } 
         return false;
     }
